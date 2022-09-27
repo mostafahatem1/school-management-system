@@ -58,18 +58,33 @@
 
                     <!-- students-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu">
-                            <div class="pull-left"><i class="fas fa-user-graduate"></i></i></i><span
-                                    class="right-nav-text">{{trans('main_trans.students')}}</span></div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="students-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="">{{trans('main_trans.add_student')}}</a> </li>
-                            <li> <a href="calendar-list.html">List Calendar</a> </li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu"><i class="fas fa-user-graduate"></i>{{trans('main_trans.students')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
+                        <ul id="students-menu" class="collapse">
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="collapse" data-target="#Student_information">{{trans('main_trans.Student_information')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
+                                <ul id="Student_information" class="collapse">
+                                    <li> <a href="{{route('students.create')}}">{{trans('main_trans.add_student')}}</a></li>
+                                    <li> <a href="{{route('students.index')}}">{{trans('main_trans.list_students')}}</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="collapse" data-target="#Students_upgrade">{{trans('main_trans.Students_Promotions')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
+                                <ul id="Students_upgrade" class="collapse">
+                                    <li> <a href="{{route('promotion.index')}}">{{trans('main_trans.add_Promotion')}}</a></li>
+                                    <li> <a href="{{route('promotion.create')}}">{{trans('main_trans.list_Promotions')}}</a> </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="collapse" data-target="#Graduate students">{{trans('main_trans.Graduate_students')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
+                                <ul id="Graduate students" class="collapse">
+                                    <li> <a href="{{route('graduated.create')}}">{{trans('main_trans.add_Graduate')}}</a> </li>
+                                    <li> <a href="{{route('graduated.index')}}">{{trans('main_trans.list_Graduate')}}</a> </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-
 
 
                     <!-- Teachers-->
@@ -81,7 +96,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Teachers-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="">{{trans('main_trans.List_Teachers')}}</a> </li>
+                            <li> <a href="{{route('teachers.index')}}">{{trans('main_trans.List_Teachers')}}</a> </li>
                         </ul>
                     </li>
 
@@ -95,7 +110,8 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Parents-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="">{{trans('main_trans.List_Parents')}}</a> </li>
+                            <li> <a href="{{url('add_parent')}}">{{trans('main_trans.List_Parents')}}</a> </li>
+
                         </ul>
                     </li>
 
@@ -108,8 +124,12 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="calendar.html">Events Calendar </a> </li>
-                            <li> <a href="calendar-list.html">List Calendar</a> </li>
+                            <li> <a href="{{route('fees.index')}}">{{trans('fees_trans.Tuition_fees')}}</a> </li>
+                            <li> <a href="{{route('Fees_Invoices.index')}}">{{__('fees_trans.Invoices')}}</a> </li>
+                            <li> <a href="{{route('receipt_students.index')}}">{{__('fees_trans.receipt_voucher')}}&nbsp;</a> </li>
+                            <li> <a href="{{route('Payment_students.index')}}">{{__('fees_trans.Payment_voucher')}}</a> </li>
+                            <li> <a href="{{route('ProcessingFee.index')}}"> {{__('fees_trans.Fee_Processors')}}</a> </li>
+
                         </ul>
                     </li>
 

@@ -2,19 +2,6 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Validation Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines contain the default error messages used by
-    | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
-    |
-    */
-
-
-
     'Dashboard'=>'Dashboard',
     'Dashboard_page'=>'Dashboard',
     'Main_title' => 'School Management Program',
@@ -27,10 +14,15 @@ return [
     'sections'=>'Sections',
     'List_sections'=>'List Sections',
     'students'=>'Students',
+    'Student_information'=>'Information Students',
     'add_student'=>'Add student',
-    'information_student'=>'Information Students',
-    'Students_upgrade'=>'Students Upgrade',
+    'list_students'=>'list Students',
+    'Students_Promotions'=>'Students Promotions',
+    'add_Promotion'=>'Add a new promotion',
+    'list_Promotions'=>'Promotions list',
     'Graduate_students'=>'Graduate Students',
+    'add_Graduate'=>'Add a new graduation',
+    'list_Graduate'=>'Graduation List',
     'Teachers'=>'Teachers',
     'List_Teachers' => 'List Teachers',
     'Parents'=>'Parents',
@@ -44,6 +36,8 @@ return [
     'Settings'=>'Settings',
     'Users'=>'Users',
     'Copyright' => 'Copyright',
-    'Name_Programer' => 'SamirGamal MoraSoft All Rights Reserved'
+    'Name_Programer' => 'Mostafa Hatem All Rights Reserved',
+
+
 
 ];
