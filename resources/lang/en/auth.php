@@ -13,7 +13,17 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'Student_login' => 'Student Login',
+    'Parent_login' => 'Parent Login',
+    'teacher_login' => 'Teacher Login',
+    'admin_login' => 'Admin Login',
+    'E_mail' => 'E-mail',
+    'password'=>'Password',
+    'remember'=>'Remember',
+    'forget_password'=>'did you forget your password?',
+    'Login'=>'Login',
+    'Select_way'=>'Select a way to Login',
+    'error_password_email'=>'There is an error in the password or email',
+
 
 ];

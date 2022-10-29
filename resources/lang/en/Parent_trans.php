@@ -11,6 +11,8 @@ return [
     'Step3' => 'Confirm information',
     'Email' => 'Email',
     'Password' => 'Password',
+
+    //   Father
     'Name_Father' => 'Father Name Arabic',
     'Name_Father_en' => 'Father Name English',
     'Job_Father' => 'Job Title Arabic',
@@ -23,7 +25,7 @@ return [
     'Religion_Father_id' => 'Religion',
     'Address_Father' => 'Address Father',
 
-    //معلومات الام
+    //   Mother
     'Name_Mother' => 'Mother Name Arabic',
     'Name_Mother_en' => 'Mother Name English',
     'Job_Mother' => 'Job Title Arabic',
@@ -41,5 +43,15 @@ return [
     'Processes' => 'Processes',
     'delete_Parent_Error'=> 'It is not possible to delete a parent because there are attachments to it',
 
+    //    Dashboard   //
 
+    'children'=>'children',
+    'children_list'=>'Children List',
+    'View_quiz_results'=>'View quizzes results',
+    'error_student_code'=>'There is an error in the student code',
+    'no_results_student'=>'There are no results for this student',
+    "student_name"=>"student's name",
+    'quiz_name'=>'quiz name',
+    'Degree'=>'Degree',
+    'date_quiz'=>'The date of the quiz'
 ];

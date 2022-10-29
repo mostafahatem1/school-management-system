@@ -1,0 +1,46 @@
+<?php
+
+return [
+    'Quizzes'=>'الإختبارات',
+    'Quiz_List' => 'قائمة الاختبارات',
+    'Quiz_name' => 'اسم الاختبار',
+    'Subject'=>'المادة الدراسية',
+    'teacher_name'=>'اسم المعلم',
+    'E_mail'=>'البريد الإلكتروني',
+    'Educational_level'=>'المرحله الدراسيه',
+    'Classroom'=>'الفصل الدراسي',
+    'Section'=>'القسم',
+    'Quiz_name_ar' => '>اسم الاختبار باللغة العربية',
+    'Quiz_name_en' => 'اسم الاختبار باللغة الانجليزية',
+    'add_Quiz'=>'اضافة اختبار جديد',
+    'Edit_Quiz'=>'تعديل اختبار',
+    'delete_Quiz'=>'حذف اختبار',
+    'list_questions'=>'قائمة الاسئلة',
+    'Add_question'=>'اضافة سؤال جديد',
+    'question'=>'سؤال',
+    'answers'=>'الاجابات',
+    'Questions_separated_by'=>'يجب فصل الإجابات بعلامة',
+    'correct_answer'=>'الاجابة الصحيحة',
+    'Degree'=>'الدرجة',
+    'Edit_question'=>'تعديل السؤال',
+    'Delete_question'=>'حذف السؤال',
+    'Select_quiz'=>'حدد اسم الاختبار ...',
+    'Select_degree'=>'حدد الدرجة...',
+    'start_quiz'=>'بدء الاختبار',
+    'take_quiz'=>'إجراء اختبار',
+    'Quiz_canceled'=>'تم إلغاء الاختبار لإكتشاف تلاعب بالنظام',
+    'quiz_canceled_automatically'=>'يرجى عدم إعادة تحميل الصفحة بعد دخول الاختبار - إذا تم تنفيذ ذلك ، فسيتم إلغاء الاختبار تلقائيًا',
+    'quiz_performed_successfully'=>'تم إجراء الاختبار بنجاح',
+    'The_exam_has_been_opened'=>'تم فتح الاختبار مرة اخرى للطالب',
+
+    ////////////// Degree /////////////////////////
+    'student_name'=>"اسم الطالب",
+    'Last_question'=>'اخر سؤال',
+    'tamper'=>' تلاعب',
+    'quiz_started'=>'تاريخ اجراء الاختبار',
+    'tamper_not'=>'لا يوجد تلاعب',
+    'tamper_exist'=>' يوجد تلاعب',
+    'Open_re-examination_student'=>'فتح إعادة الاختبار للطالب',
+    'List_tested_students'=>'قائمة الطلاب المختبرين'
+
+];

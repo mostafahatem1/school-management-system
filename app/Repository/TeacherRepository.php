@@ -24,8 +24,8 @@ class TeacherRepository implements TeacherRepositoryInterface
     public function StoreTeachers($request){
         try {
             $Teachers = new Teacher();
-            $Teachers->Email = $request->Email;
-            $Teachers->Password =  Hash::make($request->Password);
+            $Teachers->email = $request->Email;
+            $Teachers->password =Hash::make($request->Password);
             $Teachers->Name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
             $Teachers->Specialization_id = $request->Specialization_id;
             $Teachers->Gender_id = $request->Gender_id;

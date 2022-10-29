@@ -337,7 +337,7 @@ POTENZA.Sidebarnav = function () {
       return false;
     });
 
-    $(document).on("mouseenter mouseleave",".wrapper > .setting-panel", function(e) {
+    $(document).on("mouseenter mouseleave",".wrapper > .Abouts-panel", function(e) {
       if (e.type == "mouseenter") {
         $wrapper.addClass("no-transition");
       }

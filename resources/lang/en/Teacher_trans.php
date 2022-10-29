@@ -16,4 +16,28 @@ return [
     'Processes'=>'Processes',
     'Back' => 'Back',
     'Save' => 'Save',
+
+    ///====  dashboard ====////
+    'Reports'=>'Reports',
+    'Attendance_absence_report'=>'Attendance and absence report',
+    'Exam_Report'=>'Exam Report',
+    'Profile'=>'My Profile',
+    'information_search'=>'Information Search',
+    'Students'=>'Students',
+    'all_students'=>'All Students',
+    'Start_Date'=>'Start Date',
+    'End_date'=>'End date',
+    'from'=>'From',
+    'to'=>'To',
+    'Date'=>'Date',
+    'Status'=>'Status',
+    'The_end_date_the_start_date'=>'The end date must be greater than or equal to the start date',
+    'date_format'=>'The date format should be(yyyy-mm-dd)',
+    'Teacher'=>'Teacher',
+    'Username_Arabic'=>'Username in Arabic',
+    'Username_English'=>'Username in English',
+    'New_password'=>'New password',
+    'Show_password'=>'Show password',
+    'Edit_data'=>'Edit data',
+
 ];

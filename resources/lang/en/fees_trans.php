@@ -17,6 +17,7 @@ return [
     'bus_fee'=>'bus fee',
     'delete'=>'Are you sure with the deletion process?',
     'Add_new_invoice'=>'Add a new invoice',
+    'Invoice_date'=>'Invoice date',
     'student_name'=>"student's name",
     'Tuition_invoices'=>'Tuition invoices',
     'delete_invoice'=>'delete invoice',

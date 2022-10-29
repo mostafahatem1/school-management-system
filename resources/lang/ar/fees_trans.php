@@ -17,6 +17,7 @@ return [
     'bus_fee'=>'bus fee',
     'delete'=>'هل انت متاكد مع عملية الحذف ؟',
     'Add_new_invoice'=>'اضافة فاتورة جديدة',
+    'Invoice_date'=>'تاريخ الفاتورة',
     'student_name'=>'اسم الطالب',
     'Tuition_invoices'=>'فواتير دراسية',
     'delete_invoice'=>'حذف فاتورة',

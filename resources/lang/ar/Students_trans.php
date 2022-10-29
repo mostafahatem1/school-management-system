@@ -53,6 +53,7 @@ return [
     'View_student_data'=>'عرض بيانات الطالب',
     'Edit_student_data'=>'تعديل بيانات الطالب',
     'Add_fee_invoice'=>'اضافة فاتورة رسوم',
+    'Student'=>'طالب',
 
 
 

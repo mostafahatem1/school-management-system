@@ -1,0 +1,47 @@
+<?php
+
+return [
+
+    'Quizzes'=>'Quizzes',
+    'Quiz_List' => 'Quizzes List',
+    'Quiz_name' => 'Quiz name',
+    'Subject'=>'Subject',
+    'teacher_name'=>'teacher name',
+    'E_mail'=>'E-mail',
+    'Educational_level'=>'Educational level',
+    'Classroom'=>'Classroom',
+    'Section'=>'Section',
+    'Quiz_name_ar' => 'Quiz name ar',
+    'Quiz_name_en' => 'Quiz name en',
+    'term'=>'Term',
+    'add_Quiz'=>'Add a new Quiz',
+    'Edit_Quiz'=>'Edit exam',
+    'delete_Quiz'=>'delete Quiz',
+    'list_questions'=>'list of questions',
+    'Add_question'=>'Add a new question',
+    'question'=>'A question',
+    'answers'=>'answers',
+    'Questions_separated_by'=>'Answers must be separated by a sign',
+    'correct_answer'=>'The correct answer',
+    'Degree'=>'Degree',
+    'Edit_question'=>'Edit question',
+    'Delete_question'=>'Delete question',
+    'Select_quiz'=>'Select the name of the quiz...',
+    'Select_degree'=>'Select the degree...',
+    'start_quiz'=>'start quiz',
+    'take_quiz'=>'take the quiz',
+    'Quiz_canceled'=>'Quiz canceled due to system tampering',
+    'quiz_canceled_automatically'=>'Please do not reload the page after entering the quiz- if this is implemented, the quiz will be canceled automatically',
+    'quiz_performed_successfully'=>'quiz performed successfully',
+    'The_exam_has_been_opened'=>'The exam has been opened again to the student',
+
+    ////////////// Degree /////////////////////////
+    'student_name'=>"student's name",
+    'Last_question'=>'Last question',
+    'tamper'=>'tamper',
+    'quiz_started'=>'quiz started at',
+    'tamper_not'=>'tampering does not exist',
+    'tamper_exist'=>'tampering does exist',
+    'Open_re-examination_student'=>'Open re-examination for the student',
+    'List_tested_students'=>'List of tested students'
+];

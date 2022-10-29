@@ -13,7 +13,16 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'Student_login' => 'تسجيل دخول الطالب',
+    'Parent_login' => 'تسجيل دخول ولي امر',
+    'teacher_login' => 'تسجيل دخول معلم',
+    'admin_login' => 'تسجيل دخول ادمن',
+    'E_mail' => 'البريد الالكتروني',
+    'password'=>'كلمة المرور',
+    'remember'=>'تذكر',
+    'forget_password'=>'هل نسيت كلمة المرور؟',
+    'Login'=>'تسجيل الدخول',
+    'Select_way'=>'حدد طريقة لتسجيل الدخول',
+    'error_password_email'=>'يوجد خطأ في كلمة المرور أو البريد الإلكتروني',
 
 ];

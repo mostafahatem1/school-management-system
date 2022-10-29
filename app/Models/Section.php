@@ -20,6 +20,11 @@ class Section extends Model
         return $this->belongsTo('App\Models\Classroom', 'Class_id');
     }
 
+    public function Grades()
+    {
+        return $this->belongsTo('App\Models\Grade', 'Grade_id');
+    }
+
     // علاقة الاقسام مع المعلمين
     public function teachers()
     {

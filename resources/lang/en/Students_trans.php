@@ -14,7 +14,7 @@ return [
     'Date_of_Birth' => 'Date_of_Birth',
     'Student_information' => 'Student information',
     'Student_Edit' => 'Student Edit',
-    'Grade' => 'Grade',
+    'Grade' => 'Educational level',
     'classrooms' => 'classrooms',
     'section' => 'section',
     'parent' => 'parent',
@@ -54,6 +54,7 @@ return [
     'View_student_data'=>'View student data',
     'Edit_student_data'=>'Edit student data',
     'Add_fee_invoice'=>'Add a fee invoice',
+    'Student'=>'Student',
 
 
 

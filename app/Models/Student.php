@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Translatable\HasTranslations;
 
-class Student extends Model
+class Student extends Authenticatable
 {
     use SoftDeletes;
 
@@ -57,5 +58,11 @@ class Student extends Model
     public function student_account()
     {
         return $this->hasMany('App\Models\StudentAccount', 'student_id');
+    }
+
+    // علاقة بين جدول الطلاب وجدول الحضور والغياب
+    public function attendance()
+    {
+        return $this->hasMany('App\Models\Attendance', 'student_id');
     }
 }

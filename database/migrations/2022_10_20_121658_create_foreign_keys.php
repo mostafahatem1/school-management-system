@@ -94,6 +94,52 @@ class CreateForeignKeys extends Migration {
             $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
         });
 
+        Schema::table('attendances', function (Blueprint $table) {
+            $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreignId('grade_id')->references('id')->on('Grades')->onDelete('cascade');
+            $table->foreignId('classroom_id')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreignId('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+        });
+
+        Schema::table('subjects', function (Blueprint $table) {
+            $table->foreignId('grade_id')->references('id')->on('Grades')->onDelete('cascade');
+            $table->foreignId('classroom_id')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->foreignId('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+        });
+
+        Schema::table('quizzes', function (Blueprint $table) {
+            $table->foreignId('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+            $table->foreignId('grade_id')->references('id')->on('Grades')->onDelete('cascade');
+            $table->foreignId('classroom_id')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreignId('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+        });
+
+        Schema::table('questions', function (Blueprint $table) {
+            $table->foreignId('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');
+        });
+
+        Schema::table('online_classes', function (Blueprint $table) {
+            $table->foreignId('Grade_id')->references('id')->on('Grades')->onDelete('cascade');
+            $table->foreignId('Classroom_id')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
+           //$table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+
+        Schema::table('library', function (Blueprint $table) {
+            $table->foreignId('Grade_id')->references('id')->on('Grades')->onDelete('cascade');
+            $table->foreignId('Classroom_id')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreignId('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+        });
+
+        Schema::table('degrees', function (Blueprint $table) {
+            $table->foreignId('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');
+            $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreignId('question_id')->references('id')->on('questions')->onDelete('cascade');
+        });
+
 
 
     }
