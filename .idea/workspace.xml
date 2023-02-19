@@ -1,45 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffbc5736-142b-4e12-a248-54011c362f28" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AboutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AboutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Classrooms/ClassroomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Classrooms/ClassroomController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Parents/dashboard/ChildrenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Parents/dashboard/ChildrenController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sections/SectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sections/SectionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Students/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Students/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Teachers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Teachers/TeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Teachers/dashboard/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Teachers/dashboard/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AddParent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AddParent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreClassroom.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreClassroom.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/FeeInvoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FeeInvoice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/LibraryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/LibraryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/TeacherRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/TeacherRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_10_20_121658_create_foreign_keys.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_10_20_121658_create_foreign_keys.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/school.xmind" beforeDir="false" afterPath="$PROJECT_DIR$/database/school.xmind" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/logo-icon-dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ar/Parent_trans.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/Parent_trans.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/Parent_trans.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/Parent_trans.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/quiz_trans.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/quiz_trans.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/head.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main-header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main-header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main-sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main-sidebar/parent-main-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main-sidebar/parent-main-sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/add-parent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/add-parent.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/Attendance/Sections.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Attendance/Sections.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/My_Classes/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/My_Classes/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/Students/promotion/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Students/promotion/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/Students/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Students/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/Teachers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Teachers/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/Teachers/dashboard/Quizzes/student_quizze.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Teachers/dashboard/Quizzes/student_quizze.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/Teachers/dashboard/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Teachers/dashboard/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/grades/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/grades/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/parent.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/parent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="ffbc5736-142b-4e12-a248-54011c362f28" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -303,7 +265,7 @@
       <workItem from="1675931283261" duration="25266000" />
       <workItem from="1676028112813" duration="12673000" />
       <workItem from="1676144224538" duration="27396000" />
-      <workItem from="1676244432245" duration="115174000" />
+      <workItem from="1676244432245" duration="115512000" />
     </task>
     <servers />
   </component>
