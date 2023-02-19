@@ -32,9 +32,16 @@ class AboutController extends Controller
 //            }
 
             if($request->hasFile('logo')) {
-                $logo_name = $request->file('logo')->getClientOriginalName();
-                About::where('key', 'logo')->update(['value' => $logo_name]);
+                ///  Delete logo from disk
+                $old_logo_name = About::where('key', 'logo')->pluck('value')->first();
+                $this->deleteFile($old_logo_name ,'logo');
+
+                // form request('logo') Update logo on disk  and Database
+                $new_logo_name = $request->file('logo')->getClientOriginalName();
+                About::where('key', 'logo')->update(['value' => $new_logo_name]);
                 $this->uploadFile($request,'logo','logo');
+
+
             }
 
             flash()->addSuccess(trans('messages.Update'));

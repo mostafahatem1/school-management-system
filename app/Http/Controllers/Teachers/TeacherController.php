@@ -20,12 +20,6 @@ class TeacherController extends Controller
         $this->Teacher = $Teacher;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     public function index()
     {
         $Teachers = $this->Teacher->getAllTeachers();
@@ -33,11 +27,7 @@ class TeacherController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $specializations = $this->Teacher->Getspecialization() ;
@@ -45,12 +35,7 @@ class TeacherController extends Controller
         return view('pages.Teachers.create',compact('specializations','genders'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(StoreTeachers $request)
     {
 
@@ -58,46 +43,24 @@ class TeacherController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Teacher $teacher)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         return $this->Teacher->editTeachers($id);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(UpdateTeachers $request)
     {
         return $this->Teacher->UpdateTeachers($request);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         return $this->Teacher->DeleteTeachers($request);

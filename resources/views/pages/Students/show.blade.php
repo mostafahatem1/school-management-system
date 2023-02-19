@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
+
     @section('title')
         {{trans('Students_trans.Student_details')}}
     @stop
@@ -33,6 +33,7 @@
                                 </li>
                             </ul>
                             <div class="tab-content">
+                                <!-------------               Student_details                ----------------------------->
                                 <div class="tab-pane fade active show" id="home-02" role="tabpanel"
                                      aria-labelledby="home-02-tab">
                                     <table class="table table-striped table-hover" style="text-align:center">
@@ -72,20 +73,23 @@
                                         </tbody>
                                     </table>
                                 </div>
-
+                                <!-------------               Attachments                ----------------------------->
                                 <div class="tab-pane fade" id="profile-02" role="tabpanel"
                                      aria-labelledby="profile-02-tab">
                                     <div class="card card-statistics">
                                         <div class="card-body">
-                                            <form method="post" action="{{route('Upload_attachment')}}" enctype="multipart/form-data">
+                                            <form method="post" action="{{route('Upload_attachment')}}"
+                                                  enctype="multipart/form-data">
                                                 {{ csrf_field() }}
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label
                                                             for="academic_year">{{trans('Students_trans.Attachments')}}
                                                             : <span class="text-danger">*</span></label>
-                                                        <input type="file" accept="image/*" name="photos[]" multiple required>
-                                                        <input type="hidden" name="student_name" value="{{$Student->name}}">
+                                                        <input type="file" accept="image/*" name="photos[]" multiple
+                                                               required>
+                                                        <input type="hidden" name="student_name"
+                                                               value="{{$Student->name}}">
                                                         <input type="hidden" name="student_id" value="{{$Student->id}}">
                                                     </div>
                                                 </div>
@@ -115,7 +119,9 @@
                                                     <td colspan="2">
                                                         <a class="btn btn-outline-info btn-sm"
                                                            href="{{url('Download_attachment')}}/{{ $attachment->imageable->name }}/{{$attachment->filename}}"
-                                                           role="button"><i class="fas fa-download"></i>&nbsp; {{trans('Students_trans.Download')}}</a>
+                                                           role="button"><i
+                                                                class="fas fa-download"></i>&nbsp; {{trans('Students_trans.Download')}}
+                                                        </a>
 
                                                         <button type="button" class="btn btn-outline-danger btn-sm"
                                                                 data-toggle="modal"
@@ -134,13 +140,11 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
             <!-- row closed -->
-            @endsection
-            @section('js')
-                @toastr_js
-                @toastr_render
+@endsection
+@section('js')
+
 @endsection

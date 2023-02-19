@@ -34,20 +34,25 @@ class AddParent extends Component
         $Phone_Mother, $Job_Mother, $Job_Mother_en,
         $Nationality_Mother_id, $Blood_Type_Mother_id,
         $Address_Mother, $Religion_Mother_id;
+
+    //====  Realtime Form Validation  ===//
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName, [
             'Email' => 'required|email',
+            //====  Realtime Form Validation Mother  ===//
+
             'National_ID_Father' => 'required|string|min:10|max:10|regex:/[0-9]{9}/',
             'Passport_ID_Father' => 'min:10|max:10',
             'Phone_Father' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            //====  Realtime Form Validation Mother  ===//
+
             'National_ID_Mother' => 'required|string|min:10|max:10|regex:/[0-9]{9}/',
             'Passport_ID_Mother' => 'min:10|max:10',
             'Phone_Mother' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10'
         ]);
     }
-
-
+//===================================================================================================================//
     public function render()
     {
         return view('livewire.add-parent', [
@@ -57,7 +62,7 @@ class AddParent extends Component
             'my_parents' => My_Parent::all()
         ]);
     }
-
+//===================================================================================================================//
     //firstStepSubmit
     public function firstStepSubmit()
     {
@@ -77,8 +82,8 @@ class AddParent extends Component
             'Address_Father' => 'required',
         ]);
         $this->currentStep = 2;
-
     }
+//===================================================================================================================//
     //secondStepSubmit
     public function secondStepSubmit()
     {
@@ -97,7 +102,7 @@ class AddParent extends Component
         ]);
         $this->currentStep = 3;
     }
-
+//===================================================================================================================//
     public function submitForm(){
 
         try {
@@ -146,11 +151,8 @@ class AddParent extends Component
         catch (\Exception $e) {
             $this->catchError = $e->getMessage();
         };
-
-
-
     }
-
+//===================================================================================================================//
     //clearForm
     public function clearForm()
     {
@@ -181,15 +183,16 @@ class AddParent extends Component
         $this->Religion_Mother_id ='';
 
     }
-
+//===================================================================================================================//
     public function showformadd(){
         $this->show_table = false;
     }
 
     public function showTable(){
         $this->show_table = true;
+        $this->updateMode = false;
     }
-
+//===================================================================================================================//
     public function edit($id)
     {
         $this->show_table = false;
@@ -222,7 +225,7 @@ class AddParent extends Component
         $this->Address_Mother =$My_Parent->Address_Mother;
         $this->Religion_Mother_id =$My_Parent->Religion_Mother_id;
     }
-
+//===================================================================================================================//
     public function submitForm_edit(){
 
         if ($this->Parent_id){
@@ -255,7 +258,7 @@ class AddParent extends Component
         flash()->addSuccess(trans('messages.Update'));
         return redirect()->to('/add_parent');
     }
-
+//===================================================================================================================//
     public function delete($id){
 
 
@@ -274,7 +277,7 @@ class AddParent extends Component
             return redirect()->to('/add_parent');
         }
     }
-
+//===================================================================================================================//
     //back
     public function back($step)
     {

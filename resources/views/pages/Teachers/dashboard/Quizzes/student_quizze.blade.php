@@ -60,7 +60,7 @@
                                             <div class="modal fade" id="repeat_quizze{{$degree->quiz_id}}" tabindex="-1"
                                                  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    <form action="{{route('repeat.quiz', $degree->quizze_id)}}" method="post">
+                                                    <form action="{{route('repeat.quiz','test')}}" method="post">
                                                         {{method_field('post')}}
                                                         {{csrf_field()}}
                                                         <div class="modal-content">

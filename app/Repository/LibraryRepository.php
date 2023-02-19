@@ -83,7 +83,7 @@ class LibraryRepository implements LibraryRepositoryInterface
 
     public function destroy($request)
     {
-        $this->deleteFile($request->file_name);
+        $this->deleteFile($request->file_name,'library');
         library::destroy($request->id);
         flash()->addWarning(trans('messages.Delete'));
         return redirect()->route('library.index');

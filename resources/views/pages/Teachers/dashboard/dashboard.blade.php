@@ -252,10 +252,10 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @forelse(\App\Models\FeeInvoice::latest()->take(10)->get() as $section)
+                                                @forelse(\App\Models\FeeInvoice::latest()->take(10)->get() as $Fee_invoice)
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
-                                                        <td>{{$section->invoice_date}}</td>
+                                                        <td>{{$Fee_invoice->invoice_date}}</td>
                                                         <td>{{$Fee_invoice->student->name}}</td>
                                                         <td>{{$Fee_invoice->fees->title}}</td>
                                                         <td>{{ number_format($Fee_invoice->amount, 2) }}</td>

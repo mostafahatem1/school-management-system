@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
+
     @section('title')
         {{ trans('Teacher_trans.Add_Teacher') }}
     @stop
@@ -76,7 +76,8 @@
                                         <select class="custom-select my-1 mr-sm-2" name="Specialization_id">
                                             <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                             @foreach($specializations as $specialization)
-                                                <option value="{{$specialization->id}}">{{$specialization->Name}}</option>
+                                                <option
+                                                    value="{{$specialization->id}}">{{$specialization->Name}}</option>
                                             @endforeach
                                         </select>
                                         @error('Specialization_id')
@@ -102,7 +103,8 @@
                                     <div class="col">
                                         <label for="title">{{trans('Teacher_trans.Joining_Date')}}</label>
                                         <div class='input-group date'>
-                                            <input class="form-control" type="text"  id="datepicker-action" name="Joining_Date" data-date-format="yyyy-mm-dd"  required>
+                                            <input class="form-control" type="text" id="datepicker-action"
+                                                   name="Joining_Date" data-date-format="yyyy-mm-dd" required>
                                         </div>
                                         @error('Joining_Date')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -120,8 +122,10 @@
                                     @enderror
                                 </div>
 
-                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('Teacher_trans.Save')}}</button>
-                                <a href="{{route('teachers.index')}}" class="btn btn-danger btn-sm nextBtn btn-lg pull-right">{{trans('Teacher_trans.Back')}}</a>
+                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right"
+                                        type="submit">{{trans('Teacher_trans.Save')}}</button>
+                                <a href="{{route('teachers.index')}}"
+                                   class="btn btn-danger btn-sm nextBtn btn-lg pull-right">{{trans('Teacher_trans.Back')}}</a>
                             </form>
                         </div>
                     </div>
@@ -132,6 +136,5 @@
     <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
+
 @endsection

@@ -26,6 +26,7 @@
                     </ul>
                 </div>
             @endif
+
             <div class="card card-statistics h-100">
                 <div class="card-body">
                     <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
@@ -127,8 +128,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- delete_modal_Grade -->
 
+                                        <!-- delete_modal_Grade -->
                                         <div class="modal fade" id="delete{{ $grade->id }}" tabindex="-1" role="dialog"
                                              aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
@@ -166,10 +167,11 @@
                             </tbody>
                         </table>
                     </div>
+
                 </div>
             </div>
-        </div>
 
+        </div>
 
         <!-- add_modal_Grade -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

@@ -21,7 +21,17 @@
                     class="right-nav-text">{{trans('Parent_trans.children')}}</span></a>
         </li>
 
+        <!-- attendance -->
+        <li>
+            <a href="{{route('sons.attendances')}}"><i class="fas fa-chalkboard"></i><span
+                    class="right-nav-text">{{__('Teacher_trans.Attendance_absence_report')}}</span></a>
+        </li>
 
+        <!-- Financial reports-->
+        <li>
+            <a href="{{route('sons.fees')}}"><i class="fa-solid fa-coins"></i><span
+                    class="right-nav-text">{{trans('Parent_trans.Financial_reports')}}</span></a>
+        </li>
 
 
         <!-- Profile -->

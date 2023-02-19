@@ -25,7 +25,7 @@ class TeacherRepository implements TeacherRepositoryInterface
         try {
             $Teachers = new Teacher();
             $Teachers->email = $request->Email;
-            $Teachers->password =Hash::make($request->Password);
+            $Teachers->password = Hash::make($request->Password);
             $Teachers->Name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
             $Teachers->Specialization_id = $request->Specialization_id;
             $Teachers->Gender_id = $request->Gender_id;
@@ -42,8 +42,8 @@ class TeacherRepository implements TeacherRepositoryInterface
 
     public function editTeachers($id){
         $Teachers = Teacher::findOrFail($id);
-        $specializations = Specialization::all();
-        $genders = Gender::all();
+        $specializations = $this->Getspecialization();
+        $genders = $this->GetGender();
         return view('pages.Teachers.Edit',compact('Teachers','specializations','genders'));
     }
 

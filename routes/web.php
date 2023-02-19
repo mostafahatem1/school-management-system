@@ -28,7 +28,7 @@ Route::group(
     ],
     function(){
     //// ==================================== Multi Auth =========================================================///
-        Route::get('/', 'HomeController@index')->name('selection');
+        Route::get('/', 'HomeController@index')->name('selection')->middleware('guest');
 
         Route::group(['namespace' => 'Auth'], function () {
 

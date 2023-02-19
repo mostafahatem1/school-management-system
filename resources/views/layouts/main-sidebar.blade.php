@@ -20,6 +20,8 @@
             @endif
 
         </div>
+    </div>
+</div>
 
         <!-- Left Sidebar End-->
 

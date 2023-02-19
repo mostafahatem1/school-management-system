@@ -52,7 +52,8 @@ return [
     "student_name"=>"اسم الطالب",
     'quiz_name'=>'اسم الاختبار',
     'Degree'=>'الدرجة',
-    'date_quiz'=>'تاريخ اجراء الاختبار'
+    'date_quiz'=>'تاريخ اجراء الاختبار',
+    'Financial_reports'=>'تقارير ماليه',
 
 
 

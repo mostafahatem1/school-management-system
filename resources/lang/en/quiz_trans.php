@@ -28,7 +28,7 @@ return [
     'Delete_question'=>'Delete question',
     'Select_quiz'=>'Select the name of the quiz...',
     'Select_degree'=>'Select the degree...',
-    'start_quiz'=>'start quiz',
+    'start_quiz'=>'Start Quiz',
     'take_quiz'=>'take the quiz',
     'Quiz_canceled'=>'Quiz canceled due to system tampering',
     'quiz_canceled_automatically'=>'Please do not reload the page after entering the quiz- if this is implemented, the quiz will be canceled automatically',

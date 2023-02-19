@@ -53,5 +53,6 @@ return [
     "student_name"=>"student's name",
     'quiz_name'=>'quiz name',
     'Degree'=>'Degree',
-    'date_quiz'=>'The date of the quiz'
+    'date_quiz'=>'The date of the quiz',
+    'Financial_reports'=>'Financial reports'
 ];

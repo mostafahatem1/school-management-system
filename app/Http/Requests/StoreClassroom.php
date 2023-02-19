@@ -24,8 +24,12 @@ class StoreClassroom extends FormRequest
     public function rules()
     {
         return [
-            'List_Classes.*.Name' => 'required',
-            'List_Classes.*.Name_class_en' => 'required',
+//            'List_Classes.*.Name' => 'required',
+//            'List_Classes.*.Name_class_en' => 'required',
+
+            'List_Classes.*.Name' => 'required|unique:Classrooms,Name_Class->ar,Grade_id',
+            'List_Classes.*.Name_class_en' => 'required|unique:Classrooms,Name_Class->en,Grade_id',
+
         ];
     }
     public function messages()

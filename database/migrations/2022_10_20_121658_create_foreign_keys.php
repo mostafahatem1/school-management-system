@@ -13,16 +13,18 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('cascade');
 		});
+
+//===================================== sections =====================================================================//
 		Schema::table('sections', function(Blueprint $table) {
 			$table->foreign('Grade_id')->references('id')->on('Grades')
-						->onDelete('restrict')
+						->onDelete('cascade')
 						->onUpdate('cascade');
 
             $table->foreign('Class_id')->references('id')->on('Classrooms')
-                ->onDelete('restrict')
+                ->onDelete('cascade')
                 ->onUpdate('cascade');
 		});
-
+//===================================== my__parents ==================================================================//
         Schema::table('my__parents', function(Blueprint $table) {
             $table->foreign('Nationality_Father_id')->references('id')->on('nationalities');
             $table->foreign('Blood_Type_Father_id')->references('id')->on('type__bloods');

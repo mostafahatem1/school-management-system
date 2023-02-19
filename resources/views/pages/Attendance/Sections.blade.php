@@ -74,11 +74,15 @@
                                                                         <td>{{ $list_Sections->Name_Section }}</td>
                                                                         <td>{{ $list_Sections->My_class->Name_Class }}</td>
                                                                         <td>
-                                                                            <label class="badge badge-{{$list_Sections->Status == 1 ? 'success':'danger'}}">{{$list_Sections->Status == 1 ? 'نشط':'غير نشط'}}</label>
+                                                                            <label
+                                                                                class="badge badge-{{$list_Sections->Status == 1 ? 'success':'danger'}}">{{$list_Sections->Status == 1 ? 'نشط':'غير نشط'}}</label>
                                                                         </td>
 
                                                                         <td>
-                                                                            <a href="{{route('Attendance.show',$list_Sections->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">{{__('attendance_trans.Student_List')}}</a>
+                                                                            <a href="{{route('Attendance.show',$list_Sections->id)}}"
+                                                                               class="btn btn-warning btn-sm"
+                                                                               role="button"
+                                                                               aria-pressed="true">{{__('attendance_trans.Student_List')}}</a>
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach
@@ -100,30 +104,9 @@
             </div>
         </div>
         <!-- row closed -->
-        @endsection
-        @section('js')
+@endsection
+@section('js')
 
-            <script>
-                $(document).ready(function () {
-                    $('select[name="Grade_id"]').on('change', function () {
-                        var Grade_id = $(this).val();
-                        if (Grade_id) {
-                            $.ajax({
-                                url: "{{ URL::to('classes') }}/" + Grade_id,
-                                type: "GET",
-                                dataType: "json",
-                                success: function (data) {
-                                    $('select[name="Class_id"]').empty();
-                                    $.each(data, function (key, value) {
-                                        $('select[name="Class_id"]').append('<option value="' + key + '">' + value + '</option>');
-                                    });
-                                },
-                            });
-                        } else {
-                            console.log('AJAX load did not work');
-                        }
-                    });
-                });
-            </script>
+
 
 @endsection
