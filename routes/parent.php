@@ -27,7 +27,7 @@ Route::group(
         Route::get('results/{id}', 'ChildrenController@results')->name('sons.results');
         Route::get('attendances', 'ChildrenController@attendances')->name('sons.attendances');
         Route::post('attendances','ChildrenController@attendanceSearch')->name('sons.attendance.search');
-        Route::get('fees', 'ChildrenController@fees')->name('sons.fees');
+        Route::get('fee', 'ChildrenController@fees')->name('sons.fees');
         Route::get('receipt/{id}', 'ChildrenController@receiptStudent')->name('sons.receipt');
 
     });

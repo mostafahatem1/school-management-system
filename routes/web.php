@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
@@ -55,18 +57,10 @@ Route::group(
     Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
     ////====================================  Grade  =========================================================///
-    Route::group(['namespace'=>'Grades'],function(){
-        Route::resource('grades', 'GradeController');
-    });
+
 
    ////==================================== ClassesRooms =========================================================///
-    Route::group(['namespace'=>'Classrooms'],function(){
-        Route::resource('Classrooms', 'ClassroomController');
 
-        Route::post('delete_all', 'ClassroomController@delete_all')->name('delete_all');
-        Route::post('Filter_Classes', 'ClassroomController@Filter_Classes')->name('Filter_Classes');
-
-    });
     ////==================================== Sections ========================================================= ///
     Route::group(['namespace'=>'Sections'],function(){
         Route::resource('sections', 'SectionController');
@@ -118,9 +112,10 @@ Route::group(
 
    Route::resource('abouts', 'AboutController');
 
-
-
     });
+
+
+
 
 
 

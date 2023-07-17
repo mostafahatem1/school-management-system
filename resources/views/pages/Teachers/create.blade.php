@@ -32,7 +32,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('teachers.store')}}" method="post">
+                            <form action="{{route('teachers.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-row">
                                     <div class="col">
@@ -56,14 +56,14 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <label for="title">{{trans('Teacher_trans.Name_ar')}}</label>
-                                        <input type="text" name="Name_ar" class="form-control">
+                                        <input type="text" name="name_en" class="form-control">
                                         @error('Name_ar')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col">
                                         <label for="title">{{trans('Teacher_trans.Name_en')}}</label>
-                                        <input type="text" name="Name_en" class="form-control">
+                                        <input type="text" name="name_ar" class="form-control">
                                         @error('Name_en')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -73,11 +73,11 @@
                                 <div class="form-row">
                                     <div class="form-group col">
                                         <label for="inputCity">{{trans('Teacher_trans.specialization')}}</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="Specialization_id">
+                                        <select class="custom-select my-1 mr-sm-2" name="specialization">
                                             <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                             @foreach($specializations as $specialization)
                                                 <option
-                                                    value="{{$specialization->id}}">{{$specialization->Name}}</option>
+                                                    value="{{$specialization->Name}}">{{$specialization->Name}}</option>
                                             @endforeach
                                         </select>
                                         @error('Specialization_id')
@@ -86,10 +86,10 @@
                                     </div>
                                     <div class="form-group col">
                                         <label for="inputState">{{trans('Teacher_trans.Gender')}}</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="Gender_id">
+                                        <select class="custom-select my-1 mr-sm-2" name="gender">
                                             <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                             @foreach($genders as $gender)
-                                                <option value="{{$gender->id}}">{{$gender->Name}}</option>
+                                                <option value="{{$gender->Name}}">{{$gender->Name}}</option>
                                             @endforeach
                                         </select>
                                         @error('Gender_id')
@@ -115,12 +115,21 @@
 
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">{{trans('Teacher_trans.Address')}}</label>
-                                    <textarea class="form-control" name="Address"
+                                    <textarea class="form-control" name="address"
                                               id="exampleFormControlTextarea1" rows="4"></textarea>
                                     @error('Address')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
+
+
+                                <div class="form-group">
+                                    <label for="academic_year"> {{trans('Students_trans.personal_photo')}} : <span class="text-danger">*</span></label>
+                                    <input type="file" accept="image/*" name="image">
+                                </div>
+
+                                <br>
+
 
                                 <button class="btn btn-success btn-sm nextBtn btn-lg pull-right"
                                         type="submit">{{trans('Teacher_trans.Save')}}</button>

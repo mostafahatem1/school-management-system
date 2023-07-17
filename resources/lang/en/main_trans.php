@@ -1,44 +1,62 @@
 <?php
 
 return [
+    'Dashboard' => 'Home',
+    'Dashboard_page' => 'Dashboard',
+    'Main_title' => 'School Management Software',
+    'Programname' => 'School Management Software',
+    'change_language' => 'Change Language',
 
-    'Dashboard'=>'Dashboard',
-    'Dashboard_page'=>'Dashboard',
-    'Main_title' => 'School Management Program',
-    'Programname' => 'School Management Program',
-    'change_language'=>'language',
-    'grades'=>'Grades',
-    'Grades_list'=>'Grades List',
-    'classes'=>'Classes',
-    'List_classes' => 'List Classes',
-    'sections'=>'Sections',
-    'List_sections'=>'List Sections',
+    'education_level'=>'Education Levels',
+
+    'grade'=>'Grades',
+
+    'class_room'=>'Classrooms',
+    'List_class_room'=>'Classrooms List',
+
     'students'=>'Students',
-    'Student_information'=>'Information Students',
-    'add_student'=>'Add student',
-    'list_students'=>'list Students',
+
+    'Student_information'=>'Student Information',
+    'add_student'=>'Add New Student',
+    'list_students'=>'Students List',
+
     'Students_Promotions'=>'Students Promotions',
-    'add_Promotion'=>'Add a new promotion',
-    'list_Promotions'=>'Promotions list',
+    'add_Promotion'=>'Add New Promotion',
+    'list_Promotions'=>'Promotions List',
+
     'Graduate_students'=>'Graduate Students',
-    'add_Graduate'=>'Add a new graduation',
+    'add_Graduate'=>'Add New Graduation',
     'list_Graduate'=>'Graduation List',
+
     'Teachers'=>'Teachers',
-    'List_Teachers' => 'List Teachers',
+    'List_Teachers' => 'Teachers List',
+
     'Parents'=>'Parents',
+    'List_Parents'=>'Parents List',
     'Add_Parent'=>'Add Parent',
-    'List_Parents'=>'List Parents',
-    'Accounts'=>'Accounts',
+
+
     'Attendance'=>'Attendance',
+
     'Subjects'=>'Subjects',
+    'List_Subjects'=>'Subjects List',
+
     'Quizzes'=>'Quizzes',
+
     'library'=>'Library',
-    'Onlineclasses'=>'Online classes',
+    'Files' => 'Files',
+
+    'Onlineclasses'=>'Online Classes',
+    'List_classes' => 'Classes List',
+
     'About'=>'About',
+
     'Settings'=>'Settings',
+
     'Users'=>'Users',
-    'Copyright' => 'Copyright',
-    'Name_Programer' => 'Mostafa Hatem All Rights Reserved',
+    'Copyright' => 'All Rights Reserved',
+    'Name_Programer' => 'Mostafa Hatem'
+
 
 
 

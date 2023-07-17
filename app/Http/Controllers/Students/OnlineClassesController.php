@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Traits\MeetingZoomTrait;
 use App\Models\Grade;
 use App\Models\online_class;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 use MacsiDigital\Zoom\Facades\Zoom;
 
@@ -23,13 +24,15 @@ class OnlineClassesController extends Controller
     public function create()
     {
         $Grades = Grade::all();
-        return view('pages.online_classes.add', compact('Grades'));
+        $subjects = Subject::all();
+        return view('pages.online_classes.add', compact('Grades','subjects'));
     }
 
     public function indirectCreate()
     {
         $Grades = Grade::all();
-        return view('pages.online_classes.indirect', compact('Grades'));
+        $subjects = Subject::all();
+        return view('pages.online_classes.indirect', compact('Grades','subjects'));
     }
 
 
@@ -44,6 +47,7 @@ class OnlineClassesController extends Controller
                 'Classroom_id' => $request->Classroom_id,
                 'section_id' => $request->section_id,
                 'created_by' => auth()->user()->email,
+                'subject_id' => $request->subject_id,
                 'meeting_id' => $meeting->id,
                 'topic' => $request->topic,
                 'start_at' => $request->start_time,
@@ -68,6 +72,7 @@ class OnlineClassesController extends Controller
                 'Classroom_id' => $request->Classroom_id,
                 'section_id' => $request->section_id,
                 'created_by' => auth()->user()->email,
+                'subject_id' => $request->subject_id,
                 'meeting_id' => $request->meeting_id,
                 'topic' => $request->topic,
                 'start_at' => $request->start_time,

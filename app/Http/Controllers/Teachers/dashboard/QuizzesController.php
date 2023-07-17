@@ -21,8 +21,11 @@ class QuizzesController extends Controller
 
     public function create()
     {
+        $teacher_id = auth()->user()->id;
         $data['grades'] = Grade::all();
-        $data['subjects'] = Subject::where('teacher_id',auth()->user()->id)->get();
+        $data['subjects'] = Subject::whereHas('teachers', function ($query) use ($teacher_id) {
+            $query->where('teachers.id', $teacher_id);
+        })->get();
         return view('pages.Teachers.dashboard.Quizzes.create', $data);
     }
 

@@ -32,9 +32,9 @@
                                             <th>#</th>
                                             <th> {{__('Quiz_trans.Quiz_name')}}</th>
                                             <th>{{__('Quiz_trans.teacher_name')}}</th>
-                                            <th>{{__('Quiz_trans.Educational_level')}}</th>
-                                            <th>{{__('Quiz_trans.Classroom')}}</th>
-                                            <th>{{__('Quiz_trans.Section')}}</th>
+                                            <th>{{ trans('Students_trans.education_level') }}<</th>
+                                            <th>{{ trans('Students_trans.grade') }}</th>
+                                            <th>{{ trans('Students_trans.classroom') }}</th>
                                             <th>{{__('grades_trans.Processes')}}</th>
                                         </tr>
                                         </thead>
@@ -43,7 +43,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration}}</td>
                                                 <td>{{$quizze->name}}</td>
-                                                <td>{{$quizze->teacher->Name}}</td>
+                                                <td>{{$quizze->teacher->name}}</td>
                                                 <td>{{$quizze->grade->Name}}</td>
                                                 <td>{{$quizze->classroom->Name_Class}}</td>
                                                 <td>{{$quizze->section->Name_Section}}</td>

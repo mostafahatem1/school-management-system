@@ -4,11 +4,12 @@ return [
 
 
 
-    'Book_List' => 'قائمة الكتب',
-    'Add_book' => 'اضافة كتاب جديد',
-    'book_name'=>'اسم الكتاب',
+    'library' => 'المكتبة',
+    'Files_name'=>'اسم الملف',
     'attachments'=>'المرفقات',
-    'Edit_book' => 'تعديل كتاب',
+    'description' =>'وصف',
+    'Add_Files' => 'اضافة ملفات',
+    'Edit_Files' => 'تعديل ملفات',
     'Delete_book' => 'حذف الكتاب',
-
+    'Files'=>'ملفات',
 ];

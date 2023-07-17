@@ -2,13 +2,13 @@
 @section('css')
 
     @section('title')
-        {{__('library_trans.Add_book')}}
+        {{__('library_trans.Add_Files')}}
     @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
     @section('PageTitle')
-        {{__('library_trans.Add_book')}}
+        {{__('library_trans.Add_Files')}}
     @stop
     <!-- breadcrumb -->
 @endsection
@@ -34,9 +34,14 @@
                                 @csrf
                                 <div class="form-row">
 
-                                    <div class="col">
-                                        <label for="title">{{__('library_trans.book_name')}}</label>
+                                    <div class="col-6">
+                                        <label for="title">{{__('library_trans.Files_name')}}</label>
                                         <input type="text" name="title" class="form-control">
+                                    </div>
+
+                                    <div class="col-6">
+                                        <label for="description">{{__('library_trans.description')}}</label>
+                                       <textarea name="description" class="form-control"></textarea>
                                     </div>
 
                                 </div>
@@ -45,7 +50,7 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="Grade_id">{{__('Quiz_trans.Educational_level')}} : <span class="text-danger">*</span></label>
+                                            <label for="Grade_id">{{__('Students_trans.education_level')}} : <span class="text-danger">*</span></label>
                                             <select class="custom-select mr-sm-2" name="Grade_id">
                                                 <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                                 @foreach($grades as $grade)
@@ -57,7 +62,7 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="Classroom_id">{{trans('Students_trans.classrooms')}} : <span class="text-danger">*</span></label>
+                                            <label for="Classroom_id">{{trans('Students_trans.grade')}} : <span class="text-danger">*</span></label>
                                             <select class="custom-select mr-sm-2" name="Classroom_id">
 
                                             </select>
@@ -66,7 +71,7 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="section_id">{{trans('Students_trans.section')}} : </label>
+                                            <label for="section_id">{{trans('Students_trans.classroom')}} : </label>
                                             <select class="custom-select mr-sm-2" name="section_id">
 
                                             </select>

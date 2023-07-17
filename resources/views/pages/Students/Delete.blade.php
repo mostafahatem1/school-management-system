@@ -14,6 +14,7 @@
                     @method('DELETE')
 
                     <input type="hidden" name="id" value="{{$student->id}}">
+                    <input type="hidden" name="image" value="{{$student->image}}">
 
                     <h5 style="font-family: 'Cairo', sans-serif;">{{trans('Students_trans.Deleted_Student_tilte')}}</h5>
                     <input type="text" readonly value="{{$student->name}}" class="form-control">

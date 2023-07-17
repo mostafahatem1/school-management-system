@@ -26,10 +26,10 @@ class UpdateTeachers extends FormRequest
         return [
             'Email' => 'required|unique:teachers,Email,'.$this->id,
             'Password' => 'required',
-            'Specialization_id' => 'required',
-            'Gender_id' => 'required',
+            'specialization' => 'required',
+            'gender' => 'required',
             'Joining_Date' => 'required|date|date_format:Y-m-d',
-            'Address' => 'required',
+            'address' => 'required',
         ];
     }
 
@@ -39,10 +39,10 @@ class UpdateTeachers extends FormRequest
             'Email.required' => trans('validation.required'),
             'Email.unique' => trans('validation.unique'),
             'Password.required' => trans('validation.required'),
-            'Specialization_id.required' => trans('validation.required'),
-            'Gender_id.required' => trans('validation.required'),
+            'specialization.required' => trans('validation.required'),
+            'gender.required' => trans('validation.required'),
             'Joining_Date.required' => trans('validation.required'),
-            'Address.required' => trans('validation.required'),
+            'address.required' => trans('validation.required'),
         ];
     }
 }

@@ -26,16 +26,16 @@
                     <div class="login-fancy pb-40 clearfix">
                         <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">{{__('auth.Select_way')}}</h3>
                         <div class="form-inline">
-                            <a class="btn btn-default col-lg-3" title="طالب" href="{{route('login.show','student')}}">
+                            <a class="btn btn-default col-lg-3" title="{{__('auth.student')}}" href="{{route('login.show','student')}}">
                                 <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/student.png')}}">
                             </a>
-                            <a class="btn btn-default col-lg-3" title="ولي امر" href="{{route('login.show','parent')}}">
+                            <a class="btn btn-default col-lg-3" title="{{__('auth.parent')}}" href="{{route('login.show','parent')}}">
                                 <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/parent.png')}}">
                             </a>
-                            <a class="btn btn-default col-lg-3" title="معلم" href="{{route('login.show','teacher')}}">
+                            <a class="btn btn-default col-lg-3" title="{{__('auth.teacher')}}" href="{{route('login.show','teacher')}}">
                                 <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/teacher.png')}}">
                             </a>
-                            <a class="btn btn-default col-lg-3" title="ادمن" href="{{route('login.show','admin')}}">
+                            <a class="btn btn-default col-lg-3" title="{{__('auth.admin')}}" href="{{route('login.show','admin')}}">
                                 <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/admin.png')}}">
                             </a>
                         </div>
@@ -46,13 +46,16 @@
             <ul class="nav navbar-nav ml-auto">
                 <div class="btn-group mb-1">
                     <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        @if (App::getLocale() == 'ar')
-                            {{ LaravelLocalization::getCurrentLocaleName() }}
-                            <img src="{{ URL::asset('assets/images/flags/EG.png') }}" alt="">
-                        @else
-                            {{ LaravelLocalization::getCurrentLocaleName() }}
-                            <img src="{{ URL::asset('assets/images/flags/US.png') }}" alt="">
-                        @endif
+                    @if (App::getLocale() == 'ar')
+                    {{ LaravelLocalization::getCurrentLocaleName() }}
+                    <img src="{{ URL::asset('assets/images/flags/EG.png') }}" alt="">
+                @elseif(App::getLocale() == 'en')
+                    {{ LaravelLocalization::getCurrentLocaleName() }}
+                    <img src="{{ URL::asset('assets/images/flags/US.png') }}" alt="">
+                @else
+                    {{ LaravelLocalization::getCurrentLocaleName() }}
+                    <img src="{{ URL::asset('assets/images/flags/DE.png') }}" alt="">
+                @endif
                     </button>
                     <div class="dropdown-menu">
                         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)

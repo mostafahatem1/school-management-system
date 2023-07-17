@@ -15,18 +15,46 @@ class Student extends Authenticatable
     public $translatable = ['name'];
     protected $guarded =[];
 
+
+
+
+
+
+    public function myparent()
+    {
+        return $this->belongsTo('App\Models\My_Parent', 'parent_id');
+    }
+    // علاقة بين الطلاب والصور لجلب اسم الصور  في جدول الطلاب
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function student_account()
+    {
+        return $this->hasMany('App\Models\StudentAccount', 'student_id');
+    }
+
+    // علاقة بين جدول الطلاب وجدول الحضور والغياب
+    public function attendances()
+    {
+        return $this->belongsToMany(Attendance::class, 'attendance_student');
+    }
+
+    public function degrees()
+    {
+        return $this->hasMany(Degree::class, 'degree_id');
+    }
+
+    //==========================================================================================//
     // علاقة بين الطلاب والانواع لجلب اسم النوع في جدول الطلاب
 
-    public function gender()
-    {
-        return $this->belongsTo('App\Models\Gender', 'gender_id');
-    }
     // علاقة بين الطلاب والمراحل الدراسية لجلب اسم المرحلة في جدول الطلاب
-
     public function grade()
     {
         return $this->belongsTo('App\Models\Grade', 'Grade_id');
     }
+
     // علاقة بين الطلاب الصفوف الدراسية لجلب اسم الصف في جدول الطلاب
 
     public function classroom()
@@ -40,29 +68,4 @@ class Student extends Authenticatable
         return $this->belongsTo('App\Models\Section', 'section_id');
     }
 
-    public function Nationality()
-    {
-        return $this->belongsTo('App\Models\Nationalitie', 'nationalitie_id');
-    }
-
-    public function myparent()
-    {
-        return $this->belongsTo('App\Models\My_Parent', 'parent_id');
-    }
-// علاقة بين الطلاب والصور لجلب اسم الصور  في جدول الطلاب
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'imageable');
-    }
-
-    public function student_account()
-    {
-        return $this->hasMany('App\Models\StudentAccount', 'student_id');
-    }
-
-    // علاقة بين جدول الطلاب وجدول الحضور والغياب
-    public function attendance()
-    {
-        return $this->hasMany('App\Models\Attendance', 'student_id');
-    }
 }

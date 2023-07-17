@@ -59,24 +59,24 @@
                     <td>{{ $loop->index + 1 }}</td>
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->email }}</td>
-                    <td>{{ $student->gender->Name }}</td>
+                    <td>{{ $student->gender }}</td>
                     <td>{{ $student->grade->Name }}</td>
                     <td>{{ $student->classroom->Name_Class }}</td>
                     <td>{{ $student->section->Name_Section }}</td>
                     <td>
 
-                        @if(isset($student->attendance()->where('attendence_date',date('Y-m-d'))->first()->student_id))
+                        @if($student->attendances()->whereDate('attendence_date', '=', date('Y-m-d'))->exists())
 
-                            <label class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
+                        <label class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
                                 <input  disabled
-                                       {{ $student->attendance()->where('attendence_date',date('Y-m-d'))->first()->attendence_status == 1 ? 'checked' : '' }}
+                                       {{ $student->attendances()->where('attendence_date',date('Y-m-d'))->first()->attendence_status == 1 ? 'checked' : '' }}
                                        class="leading-tight" type="radio" value="presence">
                                 <span class="text-success">{{__('attendance_trans.attendance')}}</span>
                             </label>
 
                             <label class="ml-4 block text-gray-500 font-semibold">
                                 <input  disabled
-                                       {{ $student->attendance()->where('attendence_date',date('Y-m-d'))->first()->attendence_status == 0 ? 'checked' : '' }}
+                                       {{ $student->attendances()->where('attendence_date',date('Y-m-d'))->first()->attendence_status == 0 ? 'checked' : '' }}
                                        class="leading-tight" type="radio" value="absent">
                                 <span class="text-danger">{{__('attendance_trans.absence')}}</span>
                             </label>
@@ -97,10 +97,6 @@
 
                         @endif
 
-                        <input type="hidden" name="student_id[]" value="{{ $student->id }}">
-                        <input type="hidden" name="grade_id" value="{{ $student->Grade_id }}">
-                        <input type="hidden" name="classroom_id" value="{{ $student->Classroom_id }}">
-                        <input type="hidden" name="section_id" value="{{ $student->section_id }}">
 
                     </td>
                 </tr>

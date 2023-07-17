@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Teachers\dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
+use App\Models\Grade;
 use App\Models\Section;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -11,20 +12,35 @@ use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
-
-    public function index()
+    //==============================================sections==========================================================//
+    public function sections()
     {
-        $section_id = DB::table('teacher_section')->where('teacher_id',auth()->user()->id)->pluck('section_id');
-        $students=Student::whereIn('section_id',$section_id)->get();
-        return view('pages.Teachers.dashboard.students.index',compact('students'));
+        $section_id = DB::table('teacher_section')->where('teacher_id', auth()->user()->id)->pluck('section_id');
+        $sections = Section::whereIn('id', $section_id)->get();
+        return view('pages.Teachers.dashboard.sections.index', compact('sections'));
+
     }
 
-   public function sections(){
-       $section_id = DB::table('teacher_section')->where('teacher_id',auth()->user()->id)->pluck('section_id');
-       $sections=Section::whereIn('id',$section_id)->get();
-       return view('pages.Teachers.dashboard.sections.index', compact('sections'));
+    //==============================================attendanceStudent==========================================================//
+    public function index()
+    {
+        $section_id = DB::table('teacher_section')->where('teacher_id', auth()->user()->id)->pluck('section_id');
 
-   }
+        // get sections for student
+        $Grades = Grade::with(['Sections' => function ($query) use ($section_id) {
+            $query->whereIn('Sections.id', $section_id);
+        }])->get();
+        return view('pages.Teachers.dashboard.students.sections', compact('Grades'));
+    }
+
+    public function show($id)
+    {
+        $students = Student::with('attendances')->where('section_id', $id)->get();
+        return view('pages.Teachers.dashboard.students.index', compact('students'));
+    }
+
+    //=====================================attendanceReport==========================================================//
+
     public function attendance(Request $request)
     {
 
@@ -38,18 +54,23 @@ class StudentController extends Controller
                     $attendence_status = false;
                 }
 
-                Attendance::updateorCreate([
-                    'student_id'=>$studentid,
-                    'attendence_date' => date('Y-m-d')
-                ],[
-                    'student_id' => $studentid,
-                    'grade_id' => $request->grade_id,
-                    'classroom_id' => $request->classroom_id,
-                    'section_id' => $request->section_id,
-                    'teacher_id' => auth()->user()->id,
-                    'attendence_date' => date('Y-m-d'),
-                    'attendence_status' => $attendence_status
-                ]);
+                $attendance = Attendance::whereHas('students', function ($query) use ($studentid) {
+                    $query->where('students.id', $studentid);
+                })->where('attendence_date', date('Y-m-d'))
+                    ->first();
+
+                if ($attendance) {
+                    $attendance->attendence_status = $attendence_status;
+                    $attendance->save();
+                } else {
+                    $attendance = Attendance::create([
+                        'teacher_id' => auth()->user()->id,
+                        'attendence_date' => date('Y-m-d'),
+                        'attendence_status' => $attendence_status
+                    ]);
+                    $attendance->students()->attach($studentid);
+                }
+
             }
             flash()->addSuccess(trans('messages.success'));
             return redirect()->back();
@@ -58,7 +79,9 @@ class StudentController extends Controller
         }
 
     }
-    public function attendanceReport(){
+
+    public function attendanceReport()
+    {
 
         $ids = DB::table('teacher_section')->where('teacher_id', auth()->user()->id)->pluck('section_id');
         $students = Student::whereIn('section_id', $ids)->get();
@@ -84,13 +107,18 @@ class StudentController extends Controller
 
         if ($request->student_id == 0) {
 
-            $Students = Attendance::whereBetween('attendence_date', [$request->from, $request->to])->where('teacher_id', auth()->user()->id)->get();
-            return view('pages.Teachers.dashboard.students.attendance_report', compact('Students', 'students'));
+            $StudentsAttendance = Attendance::whereBetween('attendence_date', [$request->from, $request->to])->where('teacher_id', auth()->user()->id)->get();
+            return view('pages.Teachers.dashboard.students.attendance_report', compact('StudentsAttendance', 'students'));
         } else {
 
-            $Students = Attendance::whereBetween('attendence_date', [$request->from, $request->to])
-                ->where('student_id', $request->student_id)->where('teacher_id', auth()->user()->id)->get();
-            return view('pages.Teachers.dashboard.students.attendance_report', compact('Students', 'students'));
+            $StudentsAttendance = Attendance::whereBetween('attendence_date', [$request->from, $request->to])
+                ->whereHas('students', function ($query) use ($request) {
+                    $query->where('students.id', $request->student_id);
+                })
+                ->where('teacher_id', auth()->user()->id)
+                ->get();
+
+            return view('pages.Teachers.dashboard.students.attendance_report', compact('StudentsAttendance', 'students'));
 
 
         }

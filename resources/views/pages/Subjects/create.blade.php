@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('subjects.store')}}" method="post" autocomplete="off">
+                            <form action="{{route('subjects.store')}}" method="post" enctype="multipart/form-data" autocomplete="off">
                                 @csrf
 
                                 <div class="form-row">
@@ -64,12 +64,22 @@
 
                                     <div class="form-group col">
                                         <label for="inputState">{{__('subjects_trans.teacher_name')}}</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="teacher_id">
+                                        <select class="custom-select my-1 mr-sm-2" name="teacher_id[]" multiple>
                                             <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                             @foreach($teachers as $teacher)
-                                                <option value="{{$teacher->id}}">{{$teacher->Name}}</option>
+                                                <option value="{{$teacher->id}}">{{$teacher->name}}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
+                                <br><br>
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="academic_year">{{__('library_trans.attachments')}} : <span class="text-danger">*</span></label>
+                                            <input type="file" accept="application/pdf" name="file_name" required>
+                                        </div>
                                     </div>
                                 </div>
                                 <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{__('grades_trans.submit')}}</button>

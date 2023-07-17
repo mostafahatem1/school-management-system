@@ -66,7 +66,7 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="Grade_id">{{__('Quiz_trans.Educational_level')}}: <span class="text-danger">*</span></label>
+                                            <label for="Grade_id">{{ trans('Students_trans.education_level') }}: <span class="text-danger">*</span></label>
                                             <select class="custom-select mr-sm-2" name="Grade_id">
                                                 @foreach($grades as $grade)
                                                     <option  value="{{ $grade->id }}" {{$grade->id == $quizz->grade_id ? "selected":""}}>{{ $grade->Name }}</option>
@@ -77,7 +77,7 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="Classroom_id">{{__('Quiz_trans.Classroom')}} : <span class="text-danger">*</span></label>
+                                            <label for="Classroom_id">{{ trans('Students_trans.grade') }} : <span class="text-danger">*</span></label>
                                             <select class="custom-select mr-sm-2" name="Classroom_id">
                                                 <option value="{{$quizz->classroom_id}}">{{$quizz->classroom->Name_Class}}</option> </select>
                                         </div>
@@ -85,7 +85,7 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="section_id">{{__('Quiz_trans.Section')}} : </label>
+                                            <label for="section_id">{{ trans('Students_trans.classroom') }} : </label>
                                             <select class="custom-select mr-sm-2" name="section_id">
                                                 <option value="{{$quizz->section_id}}">{{$quizz->section->Name_Section}}</option>
                                             </select>

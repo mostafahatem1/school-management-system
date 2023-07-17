@@ -44,17 +44,17 @@
                                             <th scope="row">{{trans('Students_trans.email')}}</th>
                                             <td>{{$Student->email}}</td>
                                             <th scope="row">{{trans('Students_trans.gender')}}</th>
-                                            <td>{{$Student->gender->Name}}</td>
+                                            <td>{{$Student->gender}}</td>
                                             <th scope="row">{{trans('Students_trans.Nationality')}}</th>
-                                            <td>{{$Student->Nationality->Name}}</td>
+                                            <td>{{$Student->nationality}}</td>
                                         </tr>
 
                                         <tr>
-                                            <th scope="row">{{trans('Students_trans.Grade')}}</th>
+                                            <th scope="row">{{trans('Students_trans.education_level')}}</th>
                                             <td>{{ $Student->grade->Name }}</td>
-                                            <th scope="row">{{trans('Students_trans.classrooms')}}</th>
+                                            <th scope="row">{{trans('Students_trans.grade')}}</th>
                                             <td>{{$Student->classroom->Name_Class}}</td>
-                                            <th scope="row">{{trans('Students_trans.section')}}</th>
+                                            <th scope="row">{{trans('Students_trans.classroom')}}</th>
                                             <td>{{$Student->section->Name_Section}}</td>
                                             <th scope="row">{{trans('Students_trans.Date_of_Birth')}}</th>
                                             <td>{{ $Student->Date_Birth}}</td>

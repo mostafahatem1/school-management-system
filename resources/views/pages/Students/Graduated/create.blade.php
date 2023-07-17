@@ -33,7 +33,7 @@
                         @csrf
                         <div class="form-row">
                             <div class="form-group col">
-                                <label for="inputState">{{trans('Students_trans.Grade')}}</label>
+                                <label for="inputState">{{trans('Students_trans.education_level')}}</label>
                                 <select class="custom-select mr-sm-2" name="Grade_id" required>
                                     <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                     @foreach($Grades as $Grade)
@@ -42,7 +42,7 @@
                                 </select>
                             </div>
                             <div class="form-group col">
-                                <label for="Classroom_id">{{trans('Students_trans.classrooms')}} : <span
+                                <label for="Classroom_id">{{trans('Students_trans.grade')}} : <span
                                         class="text-danger">*</span></label>
                                 <select class="custom-select mr-sm-2" name="Classroom_id" required>
 
@@ -50,7 +50,7 @@
                             </div>
 
                             <div class="form-group col">
-                                <label for="section_id">{{trans('Students_trans.section')}} : </label>
+                                <label for="section_id">{{trans('Students_trans.classroom')}} : </label>
                                 <select class="custom-select mr-sm-2" name="section_id" required>
 
                                 </select>
@@ -58,7 +58,7 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary">تاكيد</button>
+                        <button type="submit" class="btn btn-primary">{{trans('Students_trans.submit')}}</button>
                     </form>
 
                 </div>

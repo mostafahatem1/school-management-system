@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\My_Parent;
-use App\Models\Nationalitie;
+use App\Models\Nationality;
 use App\Models\ParentAttachment;
 use App\Models\Religion;
 use App\Models\Type_Blood;
@@ -25,14 +25,14 @@ class AddParent extends Component
         $Name_Father, $Name_Father_en,
         $National_ID_Father, $Passport_ID_Father,
         $Phone_Father, $Job_Father, $Job_Father_en,
-        $Nationality_Father_id, $Blood_Type_Father_id,
+        $Nationality_Father_id,
         $Address_Father, $Religion_Father_id,
 
         // Mother_INPUTS
         $Name_Mother, $Name_Mother_en,
         $National_ID_Mother, $Passport_ID_Mother,
         $Phone_Mother, $Job_Mother, $Job_Mother_en,
-        $Nationality_Mother_id, $Blood_Type_Mother_id,
+        $Nationality_Mother_id,
         $Address_Mother, $Religion_Mother_id;
 
     //====  Realtime Form Validation  ===//
@@ -56,8 +56,7 @@ class AddParent extends Component
     public function render()
     {
         return view('livewire.add-parent', [
-            'Nationalities' => Nationalitie::all(),
-            'Type_Bloods' => Type_Blood::all(),
+            'Nationalities' => Nationality::all(),
             'Religions' => Religion::all(),
             'my_parents' => My_Parent::all()
         ]);
@@ -77,7 +76,6 @@ class AddParent extends Component
             'Passport_ID_Father' => 'required|unique:my__parents,Passport_ID_Father,'. $this->Parent_id,
             'Phone_Father' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'Nationality_Father_id' => 'required',
-            'Blood_Type_Father_id' => 'required',
             'Religion_Father_id' => 'required',
             'Address_Father' => 'required',
         ]);
@@ -96,7 +94,6 @@ class AddParent extends Component
             'Job_Mother' => 'required',
             'Job_Mother_en' => 'required',
             'Nationality_Mother_id' => 'required',
-            'Blood_Type_Mother_id' => 'required',
             'Religion_Mother_id' => 'required',
             'Address_Mother' => 'required',
         ]);
@@ -117,7 +114,6 @@ class AddParent extends Component
             $My_Parent->Job_Father = ['en' => $this->Job_Father_en, 'ar' => $this->Job_Father];
             $My_Parent->Passport_ID_Father = $this->Passport_ID_Father;
             $My_Parent->Nationality_Father_id = $this->Nationality_Father_id;
-            $My_Parent->Blood_Type_Father_id = $this->Blood_Type_Father_id;
             $My_Parent->Religion_Father_id = $this->Religion_Father_id;
             $My_Parent->Address_Father = $this->Address_Father;
 
@@ -129,20 +125,19 @@ class AddParent extends Component
             $My_Parent->Job_Mother = ['en' => $this->Job_Mother_en, 'ar' => $this->Job_Mother];
             $My_Parent->Passport_ID_Mother = $this->Passport_ID_Mother;
             $My_Parent->Nationality_Mother_id = $this->Nationality_Mother_id;
-            $My_Parent->Blood_Type_Mother_id = $this->Blood_Type_Mother_id;
             $My_Parent->Religion_Mother_id = $this->Religion_Mother_id;
             $My_Parent->Address_Mother = $this->Address_Mother;
 
+
+                $photo = $this->photos[0];
+                $photo->storeAs($this->National_ID_Father,  $photo->getClientOriginalName(), $disk = 'parent_attachments');
+                $My_Parent->image =  $photo->getClientOriginalName();
+
+
+
+
             $My_Parent->save();
-            if (!empty($this->photos)){
-                foreach ($this->photos as $photo) {
-                    $photo->storeAs($this->National_ID_Father, $photo->getClientOriginalName(), $disk = 'parent_attachments');
-                    ParentAttachment::create([
-                        'file_name' => $photo->getClientOriginalName(),
-                        'parent_id' => My_Parent::latest()->first()->id,
-                    ]);
-                }
-            }
+
             $this->clearForm();
             $this->currentStep = 1;
             flash()->addSuccess(trans('messages.success'));
@@ -166,7 +161,6 @@ class AddParent extends Component
         $this->Passport_ID_Father = '';
         $this->Phone_Father = '';
         $this->Nationality_Father_id = '';
-        $this->Blood_Type_Father_id = '';
         $this->Address_Father ='';
         $this->Religion_Father_id ='';
 
@@ -178,7 +172,6 @@ class AddParent extends Component
         $this->Passport_ID_Mother = '';
         $this->Phone_Mother = '';
         $this->Nationality_Mother_id = '';
-        $this->Blood_Type_Mother_id = '';
         $this->Address_Mother ='';
         $this->Religion_Mother_id ='';
 
@@ -209,7 +202,6 @@ class AddParent extends Component
         $this->Passport_ID_Father = $My_Parent->Passport_ID_Father;
         $this->Phone_Father = $My_Parent->Phone_Father;
         $this->Nationality_Father_id = $My_Parent->Nationality_Father_id;
-        $this->Blood_Type_Father_id = $My_Parent->Blood_Type_Father_id;
         $this->Address_Father =$My_Parent->Address_Father;
         $this->Religion_Father_id =$My_Parent->Religion_Father_id;
 
@@ -221,7 +213,6 @@ class AddParent extends Component
         $this->Passport_ID_Mother = $My_Parent->Passport_ID_Mother;
         $this->Phone_Mother = $My_Parent->Phone_Mother;
         $this->Nationality_Mother_id = $My_Parent->Nationality_Mother_id;
-        $this->Blood_Type_Mother_id = $My_Parent->Blood_Type_Mother_id;
         $this->Address_Mother =$My_Parent->Address_Mother;
         $this->Religion_Mother_id =$My_Parent->Religion_Mother_id;
     }
@@ -239,7 +230,6 @@ class AddParent extends Component
             'Phone_Father'=> $this->Phone_Father,
             'Job_Father'=> ['en' => $this->Job_Father_en, 'ar' => $this->Job_Father],
             'Nationality_Father_id'=> $this->Nationality_Father_id,
-            'Blood_Type_Father_id'=> $this->Blood_Type_Father_id,
             'Religion_Father_id'=> $this->Religion_Father_id,
             'Address_Father'=> $this->Address_Father,
 
@@ -249,7 +239,6 @@ class AddParent extends Component
             'Phone_Mother'=> $this->Phone_Mother,
             'Job_Mother'=> ['en' => $this->Job_Mother_en, 'ar' => $this->Job_Mother],
             'Nationality_Mother_id'=> $this->Nationality_Mother_id,
-            'Blood_Type_Mother_id'=> $this->Blood_Type_Mother_id,
             'Religion_Mother_id'=> $this->Religion_Mother_id,
             'Address_Mother'=> $this->Address_Mother,
             ]);

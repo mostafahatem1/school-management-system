@@ -55,7 +55,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="section_id">{{ trans('Students_trans.section') }} : </label>
                                     <select class="custom-select mr-sm-2" name="section_id">
@@ -63,20 +63,35 @@
                                     </select>
                                 </div>
                             </div>
-                        </div><br>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="Grade_id">{{__('subjects_trans.Name_subject')}} : <span
+                                            class="text-danger">*</span></label>
+                                    <select class="custom-select mr-sm-2" name="subject_id">
+                                        <option selected disabled>{{ trans('Parent_trans.Choose') }}...</option>
+                                        @foreach ($subjects as $subjects)
+                                            <option value="{{ $subjects->id }}">{{ $subjects->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
 
                         <div class="row">
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>{{__('online_trans.Class_title')}} : <span class="text-danger">*</span></label>
+                                    <label>{{__('online_trans.Class_title')}} : <span
+                                            class="text-danger">*</span></label>
                                     <input class="form-control" name="topic" type="text">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>{{__('online_trans.date_time')}}  : <span class="text-danger">*</span></label>
+                                    <label>{{__('online_trans.date_time')}} : <span class="text-danger">*</span></label>
                                     <input class="form-control" type="datetime-local" name="start_time">
                                 </div>
                             </div>

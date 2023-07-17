@@ -2,13 +2,13 @@
 @section('css')
 
     @section('title')
-        {{__('library_trans.Book_List')}}
+        {{__('library_trans.library')}}
     @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
     @section('PageTitle')
-        {{__('library_trans.Book_List')}}
+        {{__('library_trans.library')}}
     @stop
     <!-- breadcrumb -->
 @endsection
@@ -22,7 +22,7 @@
                         <div class="card card-statistics h-100">
                             <div class="card-body">
                                 <a href="{{route('library.create')}}" class="btn btn-success btn-sm" role="button"
-                                   aria-pressed="true">{{__('library_trans.Add_book')}}</a><br><br>
+                                   aria-pressed="true">{{__('library_trans.Add_Files')}}</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
@@ -30,12 +30,13 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{__('library_trans.book_name')}}</th>
-                                            <th>{{__('Quiz_trans.teacher_name')}}</th>
-                                            <th>{{__('Quiz_trans.Educational_level')}}</th>
-                                            <th>{{__('Quiz_trans.Classroom')}}</th>
-                                            <th>{{__('Quiz_trans.Section')}}</th>
-                                            <th>{{__('grades_trans.Processes')}}</th>
+                                            <th>{{__('library_trans.Files_name')}}</th>
+                                            <th>{{__('library_trans.description')}}</th>
+                                            <th>{{__('subjects_trans.teacher_name')}}</th>
+                                            <th>{{__('Students_trans.education_level')}}</th>
+                                            <th>{{__('Students_trans.grade')}}</th>
+                                            <th>{{__('Students_trans.classroom')}}</th>
+                                            <th>{{__('Students_trans.Processes')}}</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -43,7 +44,8 @@
                                             <tr>
                                                 <td>{{ $loop->iteration}}</td>
                                                 <td>{{$book->title}}</td>
-                                                <td>{{$book->teacher->Name}}</td>
+                                                <td>{{$book->description}}</td>
+                                                <td>{{$book->teacher->name}}</td>
                                                 <td>{{$book->grade->Name}}</td>
                                                 <td>{{$book->classroom->Name_Class}}</td>
                                                 <td>{{$book->section->Name_Section}}</td>

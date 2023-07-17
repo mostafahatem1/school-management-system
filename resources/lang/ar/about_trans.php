@@ -11,6 +11,8 @@ return [
     'E_mail'=>'البريد الالكتروني',
     'school_address'=>'عنوان المدرسة',
     'end_first_term'=>'نهاية الترم الاول',
-    'End_second_term'=>'نهاية الترم الثاني'
+    'End_second_term'=>'نهاية الترم الثاني',
+    'School' => 'المدرسة...',
+
 
 ];

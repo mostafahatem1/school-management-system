@@ -19,4 +19,9 @@ class Classroom extends Model
         return $this->belongsTo('App\Models\Grade', 'Grade_id');
     }
 
+    public function sections()
+    {
+        return $this->hasMany('App\Models\Section', 'Class_id');
+    }
+
 }

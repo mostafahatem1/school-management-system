@@ -24,7 +24,7 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <img src="{{URL::asset('assets/images/teacher.png')}}"
+                            <img src="{{ asset('attachments/students/'.$information->image) }}"
                                  alt="avatar"
                                  class="rounded-circle img-fluid" style="width: 150px;">
                             <h5 style="font-family: Cairo" class="my-3">{{$information->name}}</h5>

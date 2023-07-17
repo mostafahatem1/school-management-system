@@ -34,7 +34,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="Grade_id">{{__('Quiz_trans.Educational_level')}} : <span
+                                    <label for="Grade_id">{{ trans('Students_trans.education_level') }} : <span
                                             class="text-danger">*</span></label>
                                     <select class="custom-select mr-sm-2" name="Grade_id">
                                         <option selected disabled>{{ trans('Parent_trans.Choose') }}...</option>
@@ -47,7 +47,7 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="Classroom_id">{{ trans('Students_trans.classrooms') }} : <span
+                                    <label for="Classroom_id">{{ trans('Students_trans.grade') }} : <span
                                             class="text-danger">*</span></label>
                                     <select class="custom-select mr-sm-2" name="Classroom_id">
 
@@ -55,11 +55,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="section_id">{{ trans('Students_trans.section') }} : </label>
+                                    <label for="section_id">{{ trans('Students_trans.classroom') }} : </label>
                                     <select class="custom-select mr-sm-2" name="section_id">
 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="Grade_id">{{__('subjects_trans.Name_subject')}} : <span
+                                            class="text-danger">*</span></label>
+                                    <select class="custom-select mr-sm-2" name="subject_id">
+                                        <option selected disabled>{{ trans('Parent_trans.Choose') }}...</option>
+                                        @foreach ($subjects as $subject)
+                                            <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

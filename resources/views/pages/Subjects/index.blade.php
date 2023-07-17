@@ -44,7 +44,11 @@
                                                 <td>{{$subject->name}}</td>
                                                 <td>{{$subject->grade->Name}}</td>
                                                 <td>{{$subject->classroom->Name_Class}}</td>
-                                                <td>{{$subject->teacher->Name}}</td>
+                                                <td>
+                                                    @foreach($subject->teachers as $teacher)
+                                                        {{$teacher->name}}
+                                                    @endforeach
+                                                </td>
                                                 <td>
                                                     <a href="{{route('subjects.edit',$subject->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete_subject{{ $subject->id }}" title="حذف"><i class="fa fa-trash"></i></button>
@@ -64,7 +68,8 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p>  {{trans('fees_trans.delete')}} ({{$subject->name}})</p>
+                                                                <p>  {{trans('fees_trans.delete')}} ({{$subject->name}})
+                                                                 <input type="hidden" name="file_name" value="{{$subject->file_name}}">
                                                                 <input type="hidden" name="id"  value="{{$subject->id}}">
                                                             </div>
                                                             <div class="modal-footer">

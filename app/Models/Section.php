@@ -30,4 +30,8 @@ class Section extends Model
     {
         return $this->belongsToMany('App\Models\Teacher','teacher_section');
     }
+    public function students()
+    {
+        return $this->hasMany('App\Models\Student', 'section_id');
+    }
 }

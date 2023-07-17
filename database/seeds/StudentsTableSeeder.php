@@ -1,9 +1,10 @@
 <?php
 
 use App\Models\Classroom;
+use App\Models\Gender;
 use App\Models\Grade;
 use App\Models\My_Parent;
-use App\Models\Nationalitie;
+use App\Models\Nationality;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\Type_Blood;
@@ -25,9 +26,9 @@ class StudentsTableSeeder extends Seeder
         $students->name = ['ar' => 'احمد ابراهيم', 'en' => 'Ahmed Ibrahim'];
         $students->email = 'Ahmed_Ibrahim@yahoo.com';
         $students->password = Hash::make('12345678');
-        $students->gender_id = 1;
-        $students->nationalitie_id = Nationalitie::all()->unique()->random()->id;
-        $students->blood_id =Type_Blood::all()->unique()->random()->id;
+        $students->gender = 'male';
+        $students->Nationality= Nationality::all()->unique()->random()->Name;
+        $students->blood =Type_Blood::all()->unique()->random()->Name;
         $students->Date_Birth = date('1995-01-01');
         $students->Grade_id = Grade::all()->unique()->random()->id;
         $students->Classroom_id =Classroom::all()->unique()->random()->id;

@@ -24,6 +24,8 @@ return [
     'Login'=>'Login',
     'Select_way'=>'Select a way to Login',
     'error_password_email'=>'There is an error in the password or email',
-
-
+    'student'=>'Student',
+    'parent'=>'Parent',
+    'teacher'=>'Teacher',
+    'admin'=>'Admin'
 ];

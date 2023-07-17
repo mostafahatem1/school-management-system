@@ -14,13 +14,12 @@ class AttendanceRepository implements AttendanceRepositoryInterface
     {
         $Grades = Grade::with(['Sections'])->get();
         $list_Grades = Grade::all();
-        $teachers = Teacher::all();
-        return view('pages.Attendance.Sections',compact('Grades','list_Grades','teachers'));
+        return view('pages.Attendance.Sections',compact('Grades','list_Grades'));
     }
 
     public function show($id)
     {
-        $students = Student::with('attendance')->where('section_id',$id)->get();
+        $students = Student::with('attendances')->where('section_id',$id)->get();
         return view('pages.Attendance.index',compact('students'));
     }
 
@@ -36,16 +35,12 @@ class AttendanceRepository implements AttendanceRepositoryInterface
                     $attendence_status = false;
                 }
 
-                Attendance::create([
-                    'student_id'=> $studentid,
-                    'grade_id'=> $request->grade_id,
-                    'classroom_id'=> $request->classroom_id,
-                    'section_id'=> $request->section_id,
+                $Attendance =  Attendance::create([
                     'teacher_id'=> 1,
                     'attendence_date'=> date('Y-m-d'),
                     'attendence_status'=> $attendence_status
                 ]);
-
+                $Attendance->students()->syncWithoutDetaching($studentid);
             }
 
             flash()->addSuccess(trans('messages.success'));

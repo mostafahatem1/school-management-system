@@ -73,16 +73,38 @@
 
                                     <div class="form-group col">
                                         <label for="inputState">{{__('subjects_trans.teacher_name')}}</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="teacher_id">
+                                        <select class="custom-select my-1 mr-sm-2" name="teacher_id[]" multiple>
                                             <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
+
+
                                             @foreach($teachers as $teacher)
                                                 <option
-                                                    value="{{$teacher->id}}" {{$teacher->id == $subject->teacher_id ?'selected':''}}>{{$teacher->Name}}</option>
+                                                    value="{{ $teacher->id }}" {{ $subject->teachers->contains($teacher->id) ? 'selected' : '' }}>
+                                                    {{ $teacher->name }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    <br> <br> <br>
+
                                 </div>
-                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{__('grades_trans.submit')}}
+                                <div class="form-row">
+                                    <div class="col">
+                                        <!-- For other browsers, show a link to the PDF file -->
+                                        <a href="{{ URL::asset('attachments/subjects/'.$subject->file_name) }}"
+                                           target="_blank">View PDF</a><br><br>
+                                        <embed src="{{ URL::asset('attachments/subjects/'.$subject->file_name) }}" type="application/pdf"   height="150px" width="100px"><br><br>
+
+                                        <div class="form-group">
+                                            <label for="academic_year">{{__('library_trans.attachments')}} : <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="file" accept="application/pdf" name="file_name">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right"
+                                        type="submit">{{__('grades_trans.submit')}}
                                 </button>
                             </form>
                         </div>

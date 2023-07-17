@@ -60,7 +60,7 @@ class ShowQuestion extends Component
             $this->counter++;
         } else {
             flash()->addSuccess(trans('quiz_trans.quiz_performed_successfully'));
-            return redirect('student_quizzes');
+            return redirect('subject_student');
         }
     }
 

@@ -4,11 +4,13 @@ return [
 
 
 
-    'Book_List' => 'Book List',
-    'Add_book' => 'Add a new book',
-    'book_name'=>'book name',
-    'attachments'=>'attachments',
-    'Edit_book' => 'Edit book',
-    'Delete_book' => 'Delete book',
+    'library' => 'Library',
+    'Files_name'=>'File Name',
+    'attachments'=>'Attachments',
+    'description' =>'Description',
+    'Add_Files' => 'Add Files',
+    'Edit_Files' => 'Edit Files',
+    'Delete_book' => 'Delete Book',
+    'Files'=>'Files',
 
 ];

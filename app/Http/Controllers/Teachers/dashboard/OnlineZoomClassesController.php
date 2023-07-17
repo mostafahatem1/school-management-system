@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Traits\MeetingZoomTrait;
 use App\Models\Grade;
 use App\Models\online_class;
+use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use MacsiDigital\Zoom\Facades\Zoom;
 
 class OnlineZoomClassesController extends Controller
@@ -21,14 +23,22 @@ class OnlineZoomClassesController extends Controller
 
     public function create()
     {
+        $teacher_id = auth()->user()->id;
         $Grades = Grade::all();
-        return view('pages.Teachers.dashboard.online_classes.add', compact('Grades'));
+        $subjects = Subject::whereHas('teachers', function ($query) use ($teacher_id) {
+            $query->where('teachers.id', $teacher_id);
+        })->get();
+        return view('pages.Teachers.dashboard.online_classes.add', compact('Grades','subjects'));
     }
 
     public function indirectCreate()
     {
+        $teacher_id = auth()->user()->id;
         $Grades = Grade::all();
-        return view('pages.Teachers.dashboard.online_classes.indirect', compact('Grades'));
+        $subjects = Subject::whereHas('teachers', function ($query) use ($teacher_id) {
+            $query->where('teachers.id', $teacher_id);
+        })->get();
+        return view('pages.Teachers.dashboard.online_classes.indirect', compact('Grades','subjects'));
     }
 
     public function store(Request $request)
@@ -41,6 +51,7 @@ class OnlineZoomClassesController extends Controller
                 'Grade_id' => $request->Grade_id,
                 'Classroom_id' => $request->Classroom_id,
                 'section_id' => $request->section_id,
+                'subject_id' => $request->subject_id,
                 'created_by' => auth()->user()->email,
                 'meeting_id' => $meeting->id,
                 'topic' => $request->topic,
@@ -65,6 +76,7 @@ class OnlineZoomClassesController extends Controller
                 'Grade_id' => $request->Grade_id,
                 'Classroom_id' => $request->Classroom_id,
                 'section_id' => $request->section_id,
+                'subject_id' => $request->subject_id,
                 'created_by' => auth()->user()->email,
                 'meeting_id' => $request->meeting_id,
                 'topic' => $request->topic,

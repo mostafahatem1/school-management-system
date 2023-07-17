@@ -28,9 +28,14 @@ class Subject extends Model
     }
 
     // جلب اسم المعلم
-    public function teacher()
+    public function teachers()
     {
-        return $this->belongsTo('App\Models\Teacher', 'teacher_id');
+        return $this->belongsToMany(Teacher::class,'subject_teacher');
+    }
+
+    public function library()
+    {
+        return $this->hasMany('App\Models\Library', 'Subject_id');
     }
 
 }

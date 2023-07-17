@@ -2,13 +2,13 @@
 @section('css')
 
     @section('title')
-        {{ trans('Sections_trans.title_page') }}
+        {{trans('main_trans.List_class_room')}}
     @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
     @section('PageTitle')
-        {{ trans('Sections_trans.title_page') }}
+        {{trans('main_trans.List_class_room')}}
     @stop
     <!-- breadcrumb -->
 @endsection
@@ -26,9 +26,9 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>{{__('Quiz_trans.Educational_level')}}</th>
-                                <th>{{__('Quiz_trans.Classroom')}}</th>
-                                <th>{{__('Quiz_trans.Section')}}</th>
+                                <th>{{__('Sections_trans.Name_education_level')}}</th>
+                                <th>{{trans('Sections_trans.Name_classroom')}}</th>
+                                <th>{{ trans('Sections_trans.Status') }}</th>
                             </tr>
                             </thead>
                             <tbody>

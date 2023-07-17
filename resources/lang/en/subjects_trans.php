@@ -4,15 +4,15 @@ return [
 
 
 
-    'List_Subjects'=>'List Subjects',
-    'Add_new_subject' => 'Add a new subject',
-    'Name_subject'=>'Name subject',
-    'Name_subject_ar'=>'Name subject ar',
-    'Name_subject_en'=>'Name subject en',
+    'List_Subjects'=>'List of subjects',
+    'Add_new_subject' => 'Add new subject',
+    'Name_subject'=>'Subject name',
+    'Name_subject_ar'=>'Subject name in Arabic',
+    'Name_subject_en'=>'Subject name in English',
     'Educational_level'=>'Educational level',
     'Classroom'=>'Classroom',
-    'teacher_name'=>'teacher name',
-    'delete_subject'=>'Delete subject',
+    'teacher_name'=>'Teacher name',
     'edit_subject'=>'Edit subject',
+    'delete_subject'=>'Delete subject',
 
 ];

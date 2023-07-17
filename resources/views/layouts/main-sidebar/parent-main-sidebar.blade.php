@@ -28,10 +28,10 @@
         </li>
 
         <!-- Financial reports-->
-        <li>
+        <!-- <li>
             <a href="{{route('sons.fees')}}"><i class="fa-solid fa-coins"></i><span
                     class="right-nav-text">{{trans('Parent_trans.Financial_reports')}}</span></a>
-        </li>
+        </li> -->
 
 
         <!-- Profile -->

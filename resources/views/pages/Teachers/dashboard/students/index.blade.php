@@ -44,22 +44,24 @@
             <thead>
             <tr>
                 <th class="alert-success">#</th>
+                <th>{{ trans('admin_trans.ROLL_NO') }}</th>
                 <th class="alert-success">{{ trans('Students_trans.name') }}</th>
                 <th class="alert-success">{{ trans('Students_trans.email') }}</th>
-                <th class="alert-success">{{ trans('Students_trans.gender') }}</th>
-                <th class="alert-success">{{ trans('Students_trans.Grade') }}</th>
-                <th class="alert-success">{{ trans('Students_trans.classrooms') }}</th>
-                <th class="alert-success">{{ trans('Students_trans.section') }}</th>
+                <th class="alert-success">{{ trans('Students_trans.education_level') }}</th>
+                <th class="alert-success">{{ trans('Students_trans.grade') }}</th>
+                <th class="alert-success">{{ trans('Students_trans.classroom') }}</th>
+                <th class="alert-success">{{ trans('Students_trans.classroom') }}</th>
                 <th class="alert-success">{{ trans('Students_trans.Processes') }}</th>
             </tr>
             </thead>
             <tbody>
             @foreach ($students as $student)
                 <tr>
+                    <td><img src="{{ asset('attachments/students/'.$student->image) }}" alt="Image"width="25" style="border-radius: 50%;"></td>
                     <td>{{ $loop->index + 1 }}</td>
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->email }}</td>
-                    <td>{{ $student->gender->Name }}</td>
+                    <td>{{ $student->gender}}</td>
                     <td>{{ $student->grade->Name }}</td>
                     <td>{{ $student->classroom->Name_Class }}</td>
                     <td>{{ $student->section->Name_Section }}</td>
@@ -67,7 +69,7 @@
 
                             <label class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
                                 <input name="attendences[{{ $student->id }}]" class="leading-tight"
-                                       @foreach( $student->attendance()->where('attendence_date',date('Y-m-d'))->get() as $attendance)
+                                       @foreach( $student->attendances()->where('attendence_date',date('Y-m-d'))->get() as $attendance)
                                            {{ $attendance->attendence_status == 1 ? 'checked' : '' }}
                                        @endforeach
                                        type="radio" value="presence">
@@ -76,20 +78,17 @@
 
                             <label class="ml-4 block text-gray-500 font-semibold">
                                 <input name="attendences[{{ $student->id }}]" class="leading-tight" type="radio"
-                                       @foreach( $student->attendance()->where('attendence_date',date('Y-m-d'))->get() as $attendance)
+                                       @foreach( $student->attendances()->where('attendence_date',date('Y-m-d'))->get() as $attendance)
                                            {{ $attendance->attendence_status == 0 ? 'checked' : '' }}
                                        @endforeach
                                        value="absent">
                                 <span class="text-danger">{{__('attendance_trans.absence')}}</span>
                             </label>
 
-                        <input type="hidden" name="grade_id" value="{{ $student->Grade_id }}">
-                        <input type="hidden" name="classroom_id" value="{{ $student->Classroom_id }}">
-                        <input type="hidden" name="section_id" value="{{ $student->section_id }}">
-
                     </td>
                 </tr>
             @endforeach
+
             </tbody>
         </table>
         <P>

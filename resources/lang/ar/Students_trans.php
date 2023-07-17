@@ -12,26 +12,34 @@ return [
     'Nationality' => 'الجنسية',
     'blood_type' => 'فصلية الدم',
     'Date_of_Birth' => 'تاريخ الميلاد',
+
     'Student_information' => 'معلومات الطالب',
     'Student_Edit' => 'تعديل طالب',
-    'Grade' => 'المرحلة الدراسية',
-    'classrooms' => 'الصف الدراسي',
-    'section' => 'القسم',
+
+    'education_level' => 'المرحلة الدراسية',
+    'grade' => 'الصف الدراسي',
+    'classroom' => 'الفصل',
+
     'parent' => 'ولي الامر',
     'academic_year' => 'السنة الدراسية',
     'Processes' => 'العمليات',
     'submit' => 'تاكيد',
     'Close' => 'اغلاق',
+
     'Deleted_Student' => 'حذف بيانات الطالب',
     'Deleted_Student_tilte' => 'هل انت متأكد من حذف الطالب ؟',
+
+    'personal_photo'=>'صوره الشخصية',
     'Attachments'=>'المرفقات',
     'Student_details' => 'معلومات الطالب',
+
     'Delete_attachment' => 'حذف مرفق',
     'Delete_attachment_tilte' => 'هل انت متأكد من حذف المرفق ؟',
     'filename' => 'اسم الملف',
     'created_at' => 'تاريخ الاضافة',
     'Download' => 'تحميل',
     'delete' => 'حذف',
+    'Choose' => 'اختر',
     'status_old'=>'المرحلة الدراسية القديمة',
     'status_new'=>'المرحلة الدراسية الجديدة',
     'previous_grade' => 'المرحلة الدراسية السابقة',
@@ -52,7 +60,6 @@ return [
     'Graduation_process'=>'هل انت متاكد من الغاء عملية التخرج ؟',
     'View_student_data'=>'عرض بيانات الطالب',
     'Edit_student_data'=>'تعديل بيانات الطالب',
-    'Add_fee_invoice'=>'اضافة فاتورة رسوم',
     'Student'=>'طالب',
 
 

@@ -21,47 +21,73 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('online_zoom_classes.create')}}" class="btn btn-success" role="button" aria-pressed="true">{{__('online_trans.Add_new_classes_direct')}}</a>
-                                <a class="btn btn-warning" href="{{route('indirect.teacher.create')}}">{{__('online_trans.Add_new_classes_indirect')}}</a>
+                                <a href="{{route('online_zoom_classes.create')}}" class="btn btn-success" role="button"
+                                   aria-pressed="true">{{__('online_trans.Add_new_classes_direct')}}</a>
+                                <a class="btn btn-warning"
+                                   href="{{route('indirect.teacher.create')}}">{{__('online_trans.Add_new_classes_indirect')}}</a>
                                 <br><br>
-                                <div class="table-responsive">
-                                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
-                                           data-page-length="50"
-                                           style="text-align: center">
-                                        <thead>
-                                        <tr class="alert-success">
-                                            <th>#</th>
-                                            <th>{{__('Quiz_trans.Educational_level')}}</th>
-                                            <th>{{__('Quiz_trans.Classroom')}}</th>
-                                            <th>{{__('Quiz_trans.Section')}}</th>
-                                            <th>{{__('Quiz_trans.E_mail')}}</th>
-                                            <th>{{__('online_trans.Class_title')}}</th>
-                                            <th>{{__('online_trans.start_at')}}</th>
-                                            <th>{{__('online_trans.class_duration')}}</th>
-                                            <th>{{__('online_trans.Link_class')}}</th>
-                                            <th>{{__('grades_trans.Processes')}}</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @foreach($online_classes as $online_classe)
+                                @foreach($online_classes as $online_classe)
+                                    <div  style="margin-bottom: 40px; border: 1px solid black; padding: 8px">
+                                        <table class="col-12" data-page-length="50">
+                                            <tbody>
                                             <tr>
+                                                <th>#</th>
                                                 <td>{{ $loop->iteration }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>{{ trans('Students_trans.education_level') }}<</th>
                                                 <td>{{$online_classe->grade->Name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>{{ trans('Students_trans.grade') }}</th>
                                                 <td>{{ $online_classe->classroom->Name_Class }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>{{ trans('Students_trans.classroom') }}</th>
                                                 <td>{{$online_classe->section->Name_Section}}</td>
-                                                <td>{{$online_classe->created_by}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>{{__('subjects_trans.Name_subject')}}</th>
+                                                <td>{{$online_classe->subject->name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>{{__('online_trans.Topic')}}</th>
                                                 <td>{{$online_classe->topic}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>{{__('Quiz_trans.E_mail')}}</th>
+                                                <td>{{$online_classe->created_by}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>{{__('online_trans.start_at')}}</th>
                                                 <td>{{$online_classe->start_at}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>{{__('online_trans.class_duration')}}</th>
                                                 <td>{{$online_classe->duration}}</td>
-                                                <td class="text-danger"><a href="{{$online_classe->join_url}}" target="_blank">{{__('online_trans.Join_now')}}</a></td>
-                                                <td>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$online_classe->meeting_id}}" ><i class="fa fa-trash"></i></button>
+                                            </tr>
+                                            <tr>
+                                                <th>{{__('online_trans.Link_class')}}</th>
+                                                <td class="text-danger"><a href="{{$online_classe->join_url}}"
+                                                                           target="_blank">{{__('online_trans.Join_now')}}</a>
                                                 </td>
                                             </tr>
-                                        @include('pages.Teachers.dashboard.online_classes.delete')
-                                        @endforeach
-                                    </table>
-                                </div>
+                                            <tr>
+                                                <th>{{__('grades_trans.Processes')}}</th>
+                                                <td>
+                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal"
+                                                            data-target="#Delete_receipt{{$online_classe->meeting_id}}">
+                                                        <i class="fa fa-trash"></i></button>
+                                                </td>
+
+                                            </tr>
+                                            </tbody>
+                                            @include('pages.Teachers.dashboard.online_classes.delete')
+
+                                        </table>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

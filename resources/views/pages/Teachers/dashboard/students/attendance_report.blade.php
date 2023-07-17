@@ -58,7 +58,7 @@
                             </div>
                             <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('Students_trans.submit')}}</button>
                         </form>
-                        @isset($Students)
+                        @isset($StudentsAttendance)
                             <div class="table-responsive">
                                 <table id="datatable" class="table  table-hover table-sm table-bordered p-0" data-page-length="50"
                                        style="text-align: center">
@@ -66,20 +66,20 @@
                                     <tr>
                                         <th class="alert-success">#</th>
                                         <th class="alert-success">{{trans('Students_trans.name')}}</th>
-                                        <th class="alert-success">{{trans('Students_trans.Grade')}}</th>
-                                        <th class="alert-success">{{trans('Students_trans.section')}}</th>
+                                        <th class="alert-success">{{ trans('Students_trans.education_level') }}</th>
+                                        <th class="alert-success"> {{ trans('Students_trans.classroom') }}</th>
                                         <th class="alert-success">{{__('Teacher_trans.Date')}}</th>
                                         <th class="alert-warning">{{__('Teacher_trans.Status')}}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($Students as $student)
+                                    @foreach($StudentsAttendance as $attendance)
                                         <tr>
                                             <td>{{ $loop->index+1 }}</td>
-                                            <td>{{$student->students->name}}</td>
-                                            <td>{{$student->grade->Name}}</td>
-                                            <td>{{$student->section->Name_Section}}</td>
-                                            <td>{{$student->attendence_date}}</td>
+                                            <td>{{$attendance->students()->first()->name}}</td>
+                                            <td>{{$attendance->students()->first()->grade->Name}}</td>
+                                            <td>{{$attendance->students()->first()->section->Name_Section}}</td>
+                                            <td>{{$attendance->attendence_date}}</td>
                                             <td>
 
                                                 @if($student->attendence_status == 0)

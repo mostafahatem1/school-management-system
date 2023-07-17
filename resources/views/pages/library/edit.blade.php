@@ -2,13 +2,13 @@
 @section('css')
 
     @section('title')
-        {{__('library_trans.Edit_book')}} ({{$book->title}})
+        {{__('library_trans.Edit_Files')}} ({{$book->title}})
     @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
     @section('PageTitle')
-        {{__('library_trans.Edit_book')}} ({{$book->title}})
+        {{__('library_trans.Edit_Files')}} ({{$book->title}})
     @stop
     <!-- breadcrumb -->
 @endsection
@@ -36,9 +36,14 @@
                                 <div class="form-row">
 
                                     <div class="col">
-                                        <label for="title">{{__('library_trans.book_name')}}</label>
+                                        <label for="title">{{__('library_trans.Files_name')}}</label>
                                         <input type="text" name="title" value="{{$book->title}}" class="form-control">
                                         <input type="hidden" name="id" value="{{$book->id}}" class="form-control">
+                                    </div>
+
+                                    <div class="col-6">
+                                        <label for="description">{{__('library_trans.description')}}</label>
+                                        <textarea name="description" value="{{$book->description}}"  class="form-control"></textarea>
                                     </div>
 
                                 </div>
@@ -47,7 +52,7 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="Grade_id">{{__('Quiz_trans.Educational_level')}}: <span class="text-danger">*</span></label>
+                                            <label for="Grade_id">{{__('Students_trans.education_level')}}: <span class="text-danger">*</span></label>
                                             <select class="custom-select mr-sm-2" name="Grade_id">
                                                 <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                                 @foreach($grades as $grade)
@@ -59,7 +64,7 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="Classroom_id">{{trans('Students_trans.classrooms')}} : <span class="text-danger">*</span></label>
+                                            <label for="Classroom_id">{{trans('Students_trans.grade')}} : <span class="text-danger">*</span></label>
                                             <select class="custom-select mr-sm-2" name="Classroom_id">
                                                 <option value="{{$book->Classroom_id}}">{{$book->classroom->Name_Class}}</option>
                                             </select>
@@ -68,7 +73,7 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="section_id">{{trans('Students_trans.section')}} : </label>
+                                            <label for="section_id">{{trans('Students_trans.classroom')}} : </label>
                                             <select class="custom-select mr-sm-2" name="section_id">
                                                 <option value="{{$book->section_id}}">{{$book->section->Name_Section}}</option>
                                             </select>
@@ -78,7 +83,8 @@
 
                                 <div class="form-row">
                                     <div class="col">
-
+                                        <a href="{{ URL::asset('attachments/library/'.$book->file_name) }}"
+                                           target="_blank">View PDF</a><br><br>
                                         <embed src="{{ URL::asset('attachments/library/'.$book->file_name) }}" type="application/pdf"   height="150px" width="100px"><br><br>
 
                                         <div class="form-group">

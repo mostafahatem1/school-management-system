@@ -13,6 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         @include('layouts.head')
         @livewireStyles
+
     </head>
 
 <body>
@@ -21,7 +22,9 @@
 
     <!--=================================
 preloader -->
-
+<div id="pre-loader">
+        <img src="{{URL::asset('assets/images/pre-loader/loader-01.svg')}}" alt="">
+    </div>
     @include('layouts.main-header')
 
     @include('layouts.main-sidebar')
@@ -171,7 +174,7 @@ preloader -->
                                             <a class="nav-link" id="fee_invoices-tab" data-toggle="tab"
                                                href="#fee_invoices"
                                                role="tab" aria-controls="fee_invoices"
-                                               aria-selected="false">{{__('admin_trans.invoices')}}
+                                               aria-selected="false">{{ trans('admin_trans.class_room') }}
                                             </a>
                                         </li>
 
@@ -189,22 +192,25 @@ preloader -->
                                             <thead>
                                             <tr class="table-info text-danger">
                                                 <th>#</th>
+                                                <th>{{ trans('admin_trans.ROLL_NO') }}</th>
                                                 <th>{{trans('Students_trans.name')}}</th>
                                                 <th>{{trans('Students_trans.email')}}</th>
                                                 <th>{{trans('Students_trans.gender')}}</th>
-                                                <th>{{trans('Students_trans.Grade')}}</th>
-                                                <th>{{trans('Students_trans.classrooms')}}</th>
-                                                <th>{{trans('Students_trans.section')}}</th>
+                                                <th>{{trans('Students_trans.education_level')}}</th>
+                                                <th>{{trans('Students_trans.grade')}}</th>
+                                                <th>{{trans('Students_trans.classroom')}}</th>
                                                 <th>{{__('admin_trans.created_at')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             @forelse(\App\Models\Student::latest()->take(5)->get() as $student)
                                                 <tr>
+                                                    <td><img src="{{ asset('attachments/students/'.$student->image) }}"
+                                                             alt="Image" width="25" style="border-radius: 50%;"></td>
                                                     <td>{{$loop->iteration}}</td>
                                                     <td>{{$student->name}}</td>
                                                     <td>{{$student->email}}</td>
-                                                    <td>{{$student->gender->Name}}</td>
+                                                    <td>{{$student->gender}}</td>
                                                     <td>{{$student->grade->Name}}</td>
                                                     <td>{{$student->classroom->Name_Class}}</td>
                                                     <td>{{$student->section->Name_Section}}</td>
@@ -227,6 +233,7 @@ preloader -->
                                             <thead>
                                             <tr class="table-info text-danger">
                                                 <th>#</th>
+                                                <th>{{ trans('admin_trans.ROLL_NO') }}</th>
                                                 <th>{{trans('Teacher_trans.Name_Teacher')}}</th>
                                                 <th>{{trans('Teacher_trans.Gender')}}</th>
                                                 <th>{{trans('Teacher_trans.Joining_Date')}}</th>
@@ -238,11 +245,13 @@ preloader -->
                                             @forelse(\App\Models\Teacher::latest()->take(5)->get() as $teacher)
                                                 <tbody>
                                                 <tr>
+                                                    <td><img src="{{ asset('attachments/teachers/'.$teacher->image) }}"
+                                                             alt="Image" width="25" style="border-radius: 50%;"></td>
                                                     <td>{{$loop->iteration}}</td>
-                                                    <td>{{$teacher->Name}}</td>
-                                                    <td>{{$teacher->gender->Name}}</td>
+                                                    <td>{{$teacher->name}}</td>
+                                                    <td>{{$teacher->gender}}</td>
                                                     <td>{{$teacher->Joining_Date}}</td>
-                                                    <td>{{$teacher->specialization->Name}}</td>
+                                                    <td>{{$teacher->specialization}}</td>
                                                     <td class="text-success">{{$teacher->created_at}}</td>
                                                     @empty
                                                         <td class="alert-danger"
@@ -274,7 +283,7 @@ preloader -->
                                                 <tr>
                                                     <td>{{$loop->iteration}}</td>
                                                     <td>{{$parent->Name_Father}}</td>
-                                                    <td>{{$parent->Email}}</td>
+                                                    <td>{{$parent->email}}</td>
                                                     <td>{{$parent->National_ID_Father}}</td>
                                                     <td>{{$parent->Phone_Father}}</td>
                                                     <td class="text-success">{{$parent->created_at}}</td>
@@ -291,41 +300,75 @@ preloader -->
                                 {{--sections Table--}}
                                 <div class="tab-pane fade" id="fee_invoices" role="tabpanel"
                                      aria-labelledby="fee_invoices-tab">
-                                    <div class="table-responsive mt-15">
-                                        <table style="text-align: center"
-                                               class="table center-aligned-table table-hover mb-0">
-                                            <thead>
-                                            <tr class="table-info text-danger">
-                                                <th>#</th>
-                                                <th>{{__('fees_trans.Invoice_date')}}</th>
-                                                <th>{{__('fees_trans.student_name')}}</th>
-                                                <th>{{__('fees_trans.Fee_type')}}</th>
-                                                <th>{{__('fees_trans.amount')}}</th>
-                                                <th>{{__('fees_trans.Educational_level')}}</th>
-                                                <th>{{__('fees_trans.Classroom')}}</th>
-                                                <th>{{__('admin_trans.created_at')}}</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @forelse(\App\Models\FeeInvoice::latest()->take(10)->get() as $Fee_invoice)
-                                                <tr>
-                                                    <td>{{$loop->iteration}}</td>
-                                                    <td>{{$Fee_invoice->invoice_date}}</td>
-                                                    <td>{{$Fee_invoice->student->name}}</td>
-                                                    <td>{{$Fee_invoice->fees->title}}</td>
-                                                    <td>{{ number_format($Fee_invoice->amount, 2) }}</td>
-                                                    <td>{{$Fee_invoice->grade->Name}}</td>
-                                                    <td>{{$Fee_invoice->classroom->Name_Class}}</td>
-                                                    <td class="text-success">{{$Fee_invoice->created_at}}</td>
-                                                </tr>
-                                            @empty
-                                                <tr>
-                                                    <td class="alert-danger"
-                                                        colspan="9">{{__('admin_trans.There_is_no_data')}}</td>
-                                                </tr>
-                                            @endforelse
-                                            </tbody>
-                                        </table>
+                                    <div class="card card-statistics h-100">
+                                        <div class="card-body">
+                                            <div class="accordion gray plus-icon round">
+                                                @foreach (\App\Models\Grade::get() as $Grade)
+                                                    <div class="acd-group">
+                                                        <a href="#" class="acd-heading">{{ $Grade->Name }}</a>
+                                                        <div class="acd-des">
+                                                            <div class="row">
+                                                                <div class="col-xl-12 mb-30">
+                                                                    <div class="card card-statistics h-100">
+                                                                        <div class="card-body">
+                                                                            <div
+                                                                                class="d-block d-md-flex justify-content-between">
+                                                                                <div class="d-block">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="table-responsive mt-15">
+                                                                                <table
+                                                                                    class="table center-aligned-table mb-0">
+                                                                                    <thead>
+                                                                                    <tr class="text-dark">
+                                                                                        <th>#</th>
+                                                                                        <th>{{ trans('Sections_trans.Name_classroom') }}
+                                                                                        </th>
+                                                                                        <th>{{ trans('Sections_trans.Name_grade') }}</th>
+                                                                                        <th>{{ trans('Sections_trans.Status') }}</th>
+                                                                                        <th>{{ trans('Sections_trans.Processes') }}</th>
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    <?php $i = 0; ?>
+                                                                                    @forelse ($Grade->Sections as $list_Sections)
+                                                                                        <tr>
+                                                                                            <?php $i++; ?>
+                                                                                            <td>{{ $i }}</td>
+                                                                                            <td>{{ $list_Sections->Name_Section }}</td>
+                                                                                            <td>{{ $list_Sections->My_class->Name_Class }}
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                @if ($list_Sections->Status === 1)
+                                                                                                    <label
+                                                                                                        class="badge badge-success">{{ trans('Sections_trans.Status_classroom_AC') }}</label>
+                                                                                                @else
+                                                                                                    <label
+                                                                                                        class="badge badge-danger">{{ trans('Sections_trans.Status_classroom_No') }}</label>
+                                                                                                @endif
+
+                                                                                            </td>
+                                                                                            <td>{{ $list_Sections->created_at }} </td>
+
+                                                                                            @empty
+                                                                                                <td class="alert-danger"
+                                                                                                    colspan="8">{{__('admin_trans.There_is_no_data')}}
+                                                                                                </td>
+                                                                                        </tr>
+
+                                                                                    @endforelse
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 

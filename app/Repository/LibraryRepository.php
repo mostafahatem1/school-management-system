@@ -31,6 +31,7 @@ class LibraryRepository implements LibraryRepositoryInterface
         try {
             $books = new Library();
             $books->title = $request->title;
+            $books->description = $request->description;
             $books->file_name =  $request->file('file_name')->getClientOriginalName();
             $books->Grade_id = $request->Grade_id;
             $books->classroom_id = $request->Classroom_id;
@@ -69,6 +70,7 @@ class LibraryRepository implements LibraryRepositoryInterface
             }
 
             $book->title = $request->title;
+            $book->description = $request->description;
             $book->Grade_id = $request->Grade_id;
             $book->classroom_id = $request->Classroom_id;
             $book->section_id = $request->section_id;

@@ -24,12 +24,13 @@
                                 <a href="{{route('teachers.create')}}" class="btn btn-success btn-sm" role="button"
                                    aria-pressed="true">{{ trans('Teacher_trans.Add_Teacher') }}</a><br><br>
                                 <div class="table-responsive">
-                                    <table id="datatable"  class="table  table-hover table-sm table-bordered p-0"
+                                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
                                            style="text-align: center">
                                         <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>N</th>
                                             <th>{{trans('Teacher_trans.Name_Teacher')}}</th>
                                             <th>{{trans('Teacher_trans.Gender')}}</th>
                                             <th>{{trans('Teacher_trans.Joining_Date')}}</th>
@@ -41,33 +42,49 @@
                                         <?php $i = 0; ?>
                                         @foreach($Teachers as $Teacher)
                                             <tr>
+
                                                 <?php $i++; ?>
+                                                <td><img src="{{ asset('attachments/teachers/'.$Teacher->image) }}"
+                                                         alt="Image" width="25" style="border-radius: 50%;"></td>
+
                                                 <td>{{ $i }}</td>
-                                                <td>{{$Teacher->Name}}</td>
-                                                <td>{{$Teacher->gender->Name}}</td>
+                                                <td>{{$Teacher->name}}</td>
+                                                <td>{{$Teacher->gender}}</td>
                                                 <td>{{$Teacher->Joining_Date}}</td>
-                                                <td>{{$Teacher->specialization->Name}}</td>
+                                                <td>{{$Teacher->specialization}}</td>
                                                 <td>
-                                                    <a href="{{route('teachers.edit',$Teacher->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete_Teacher{{ $Teacher->id }}" title="{{ trans('Grades_trans.Delete') }}"><i class="fa fa-trash"></i></button>
+                                                    <a href="{{route('teachers.edit',$Teacher->id)}}"
+                                                       class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
+                                                            class="fa fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal"
+                                                            data-target="#delete_Teacher{{ $Teacher->id }}"
+                                                            title="{{ trans('Grades_trans.Delete') }}"><i
+                                                            class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
-                                           {{--  Model Delete  --}}
-                                            <div class="modal fade" id="delete_Teacher{{$Teacher->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            {{--  Model Delete  --}}
+                                            <div class="modal fade" id="delete_Teacher{{$Teacher->id}}" tabindex="-1"
+                                                 role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <form action="{{route('teachers.destroy','test')}}" method="post">
                                                         {{method_field('delete')}}
                                                         {{csrf_field()}}
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">{{ trans('Teacher_trans.Delete_Teacher') }}</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <h5 style="font-family: 'Cairo', sans-serif;"
+                                                                    class="modal-title"
+                                                                    id="exampleModalLabel">{{ trans('Teacher_trans.Delete_Teacher') }}</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <p> {{ trans('classes_trans.Warning_Grade') }}</p>
-                                                                <input type="hidden" name="id"  value="{{$Teacher->id}}">
+                                                                <input type="hidden" name="image"
+                                                                       value="{{$Teacher->image}}">
+                                                                <input type="hidden" name="id" value="{{$Teacher->id}}">
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <div class="modal-footer">

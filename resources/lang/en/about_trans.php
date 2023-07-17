@@ -3,14 +3,15 @@
 return [
 
     'About'=>'About',
-    'school_logo' => 'school logo',
-    'School_name' => 'School name',
-    'current_year'=>'current year',
-    'name_abbreviation'=>'School name abbreviation',
-    'phone'=>'phone',
+    'school_logo' => 'School Logo',
+    'School_name' => 'School Name',
+    'current_year'=>'Current Year',
+    'name_abbreviation'=>'School Name Abbreviation',
+    'phone'=>'Phone',
     'E_mail'=>'E-mail',
-    'school_address'=>'school address',
-    'end_first_term'=>'End of the first term',
-    'End_second_term'=>'End of the second term'
+    'school_address'=>'School Address',
+    'end_first_term'=>'End of First Term',
+    'End_second_term'=>'End of Second Term',
+    'School'=>'School...'
 
 ];

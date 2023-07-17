@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
+
     @section('title')
         {{trans('main_trans.list_Graduate')}}
     @stop
@@ -31,9 +31,9 @@
                                             <th>{{trans('Students_trans.name')}}</th>
                                             <th>{{trans('Students_trans.email')}}</th>
                                             <th>{{trans('Students_trans.gender')}}</th>
-                                            <th>{{trans('Students_trans.Grade')}}</th>
-                                            <th>{{trans('Students_trans.classrooms')}}</th>
-                                            <th>{{trans('Students_trans.section')}}</th>
+                                            <th>{{trans('Students_trans.education_level')}}</th>
+                                            <th>{{trans('Students_trans.grade')}}</th>
+                                            <th>{{trans('Students_trans.classroom')}}</th>
                                             <th>{{trans('Students_trans.Processes')}}</th>
                                         </tr>
                                         </thead>
@@ -68,6 +68,5 @@
     <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
+
 @endsection

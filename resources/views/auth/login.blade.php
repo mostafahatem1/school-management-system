@@ -42,18 +42,6 @@ login-->
              style="background-image: url('{{ asset('assets/images/sativa.png')}}');">
         <div class="container">
             <div class="row justify-content-center no-gutters vertical-align">
-                <div class="col-lg-4 col-md-6 login-fancy-bg bg"
-                     style="background-image: url('{{ asset('assets/images/login-inner-bg.jpg')}}');">
-                    <div class="login-fancy">
-                        <h2 class="text-white mb-20">Hello world!</h2>
-                        <p class="mb-20 text-white">Create tailor-cut websites with the exclusive multi-purpose
-                            responsive template along with powerful features.</p>
-                        <ul class="list-unstyled  pos-bot pb-30">
-                            <li class="list-inline-item"><a class="text-white" href="#"> Terms of Use</a> </li>
-                            <li class="list-inline-item"><a class="text-white" href="#"> Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="col-lg-4 col-md-6 bg-white">
                     <div class="login-fancy pb-40 clearfix">
                         @if($type == 'student')
@@ -118,13 +106,16 @@ login-->
             <ul class="nav navbar-nav ml-auto">
                 <div class="btn-group mb-1">
                     <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        @if (App::getLocale() == 'ar')
-                            {{ LaravelLocalization::getCurrentLocaleName() }}
-                            <img src="{{ URL::asset('assets/images/flags/EG.png') }}" alt="">
-                        @else
-                            {{ LaravelLocalization::getCurrentLocaleName() }}
-                            <img src="{{ URL::asset('assets/images/flags/US.png') }}" alt="">
-                        @endif
+                          @if (App::getLocale() == 'ar')
+                    {{ LaravelLocalization::getCurrentLocaleName() }}
+                    <img src="{{ URL::asset('assets/images/flags/EG.png') }}" alt="">
+                @elseif(App::getLocale() == 'en')
+                    {{ LaravelLocalization::getCurrentLocaleName() }}
+                    <img src="{{ URL::asset('assets/images/flags/US.png') }}" alt="">
+                @else
+                    {{ LaravelLocalization::getCurrentLocaleName() }}
+                    <img src="{{ URL::asset('assets/images/flags/DE.png') }}" alt="">
+                @endif
                     </button>
                     <div class="dropdown-menu">
                         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)

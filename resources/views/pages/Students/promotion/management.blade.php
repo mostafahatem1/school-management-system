@@ -35,14 +35,14 @@
                                         <tr>
                                             <th class="alert-info">#</th>
                                             <th class="alert-info">{{trans('Students_trans.name')}}</th>
+                                            <th class="alert-danger">{{trans('Students_trans.previous_level')}}</th>
+                                            <th class="alert-danger">{{trans('Students_trans.previous_academic_year')}}</th>
                                             <th class="alert-danger">{{trans('Students_trans.previous_grade')}}</th>
                                             <th class="alert-danger">{{trans('Students_trans.previous_academic_year')}}</th>
-                                            <th class="alert-danger">{{trans('Students_trans.previous_class')}}</th>
-                                            <th class="alert-danger">{{trans('Students_trans.previous_section')}}</th>
-                                            <th class="alert-success">{{trans('Students_trans.current_grade')}}</th>
+                                            <th class="alert-success">{{trans('Students_trans.current_level')}}</th>
                                             <th class="alert-success">{{trans('Students_trans.current_academic_year')}}</th>
-                                            <th class="alert-success">{{trans('Students_trans.current_class')}}</th>
-                                            <th class="alert-success">{{trans('Students_trans.current_section')}}</th>
+                                            <th class="alert-success">{{trans('Students_trans.current_grade')}}</th>
+                                            <th class="alert-success">{{trans('Students_trans.current_classroom')}}</th>
                                             <th>{{trans('Students_trans.Processes')}}</th>
                                         </tr>
                                         </thead>

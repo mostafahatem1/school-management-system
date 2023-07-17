@@ -4,22 +4,22 @@ return [
 
 
 
-    'Online_classes' => 'Online classes with Zoom',
-    'Add_new_classes_direct' => 'Add New Online Classes Direct with Zoom',
-    'Add_new_classes_indirect' => 'Add New Online Classes Indirect with Zoom',
-    'Class_title' => 'Class title',
-    'start_at' => 'Start at',
-    'class_duration'=>'Class duration',
-    'Link_class'=>'Link class',
-    'Join_now'=>'Join now',
-    'date_time'=>'Class date and time',
-    'duration_minutes'=>'Class duration in minutes',
-    'delete'=>'delete',
+    'Online_classes' => 'Online Classes with Zoom',
+    'Add_new_classes_direct' => 'Add New Online Classes Directly with Zoom',
+    'Add_new_classes_indirect' => 'Add New Online Classes Indirectly with Zoom',
+    'Class_title' => 'Class Title',
+    'start_at' => 'Start Date',
+    'class_duration'=>'Class Duration',
+    'Link_class'=>'Class Link',
+    'Join_now'=>'Join Now',
+    'date_time'=>'Class Date and Time',
+    'duration_minutes'=>'Class Duration in Minutes',
+    'delete'=>'Delete',
     'Meeting_ID'=>'Meeting ID',
-    'Topic'=>'Topic',
+    'Topic'=>'Class Topic',
     'Passcode'=>'Passcode',
-    'Link_enter_students'=>'Link to enter  students',
-    'link_start'=>'link start'
+    'Link_enter_students'=>'Student Login Link',
+    'link_start'=>'Start Link'
 
 
 ];

@@ -30,9 +30,25 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('teachers.update','test')}}" method="post">
+                            <form action="{{route('teachers.update','test')}}" method="post" enctype="multipart/form-data">
                                 {{method_field('patch')}}
                                 @csrf
+                                <div class="form-row">
+
+                                    <embed class="m-3" src="{{ asset('attachments/teachers/'.$Teachers->image) }}"
+                                           height="100" width="100px" style="border-radius: 50%;" >
+                                    <br><br>
+
+                                    <div class="form-group m-3">
+                                        <label for="academic_year">{{trans('Students_trans.personal_photo')}} : <span
+                                                class="text-danger  ">*</span></label>
+                                        <input type="file" accept="image/*" name="image"  class="d-block">
+                                    </div>
+
+                                </div>
+
+                                <br>
+
                                 <div class="form-row">
                                     <div class="col">
                                         <label for="title">{{trans('Teacher_trans.Email')}}</label>
@@ -56,14 +72,14 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <label for="title">{{trans('Teacher_trans.Name_ar')}}</label>
-                                        <input type="text" name="Name" value="{{ $Teachers->getTranslation('Name', 'ar') }}" required class="form-control">
+                                        <input type="text" name="name_en" value="{{ $Teachers->getTranslation('name', 'ar') }}" required class="form-control">
                                         @error('Name_ar')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col">
                                         <label for="title">{{trans('Teacher_trans.Name_en')}}</label>
-                                        <input type="text" name="Name" value="{{ $Teachers->getTranslation('Name', 'en') }}" required class="form-control">
+                                        <input type="text" name="name_ar" value="{{ $Teachers->getTranslation('name', 'en') }}" required class="form-control">
                                         @error('Name_en')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -73,8 +89,8 @@
                                 <div class="form-row">
                                     <div class="form-group col">
                                         <label for="inputCity">{{trans('Teacher_trans.specialization')}}</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="Specialization_id">
-                                            <option value="{{$Teachers->Specialization_id}}">{{$Teachers->specialization->Name}}</option>
+                                        <select class="custom-select my-1 mr-sm-2" name="specialization">
+                                            <option value="{{$Teachers->specialization}}">{{$Teachers->specialization}}</option>
                                             @foreach($specializations as $specialization)
                                                 <option value="{{$specialization->id}}">{{$specialization->Name}}</option>
                                             @endforeach
@@ -85,10 +101,10 @@
                                     </div>
                                     <div class="form-group col">
                                         <label for="inputState">{{trans('Teacher_trans.Gender')}}</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="Gender_id">
-                                            <option value="{{$Teachers->Gender_id}}">{{$Teachers->gender->Name}}</option>
+                                        <select class="custom-select my-1 mr-sm-2" name="gender">
+                                            <option value="{{$Teachers->gender}}">{{$Teachers->gender}}</option>
                                             @foreach($genders as $gender)
-                                                <option value="{{$gender->id}}">{{$gender->Name}}</option>
+                                                <option value="{{$gender->Name}}">{{$gender->Name}}</option>
                                             @endforeach
                                         </select>
                                         @error('Gender_id')
@@ -113,8 +129,8 @@
 
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">{{trans('Teacher_trans.Address')}}</label>
-                                    <textarea class="form-control" name="Address"
-                                              id="exampleFormControlTextarea1" rows="4">{{$Teachers->Address}}</textarea>
+                                    <textarea class="form-control" name="address"
+                                              id="exampleFormControlTextarea1" rows="4">{{$Teachers->address}}</textarea>
                                     @error('Address')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

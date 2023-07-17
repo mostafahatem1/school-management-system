@@ -35,9 +35,12 @@
                 @if (App::getLocale() == 'ar')
                     {{ LaravelLocalization::getCurrentLocaleName() }}
                     <img src="{{ URL::asset('assets/images/flags/EG.png') }}" alt="">
-                @else
+                @elseif(App::getLocale() == 'en')
                     {{ LaravelLocalization::getCurrentLocaleName() }}
                     <img src="{{ URL::asset('assets/images/flags/US.png') }}" alt="">
+                @else
+                    {{ LaravelLocalization::getCurrentLocaleName() }}
+                    <img src="{{ URL::asset('assets/images/flags/DE.png') }}" alt="">
                 @endif
             </button>
             <div class="dropdown-menu">
@@ -52,6 +55,10 @@
 
         <li class="nav-item fullscreen">
             <a id="btnFullscreen" href="#" class="nav-link"><i class="ti-fullscreen"></i></a>
+        </li>
+
+        <li class="nav-item fullscreen">
+            <a id="btnFullscreen" href="chat" class="nav-link"><i class="fa-regular fa-comment"></i></a>
         </li>
 
         <li class="nav-item dropdown ">
@@ -82,7 +89,14 @@
         <li class="nav-item dropdown mr-30">
             <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button"
                aria-haspopup="true" aria-expanded="false">
-                <img src="{{URL::asset('assets/images/default.jpg')}}" alt="">
+                @if (auth('student')->check())
+                    <img src="{{ asset('attachments/students/' . Auth::user()->image) }}" alt="">
+                @elseif (auth('teacher')->check())
+                    <img src="{{ asset('attachments/teachers/' . Auth::user()->image) }}" alt="">
+                @endif
+
+
+
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header">

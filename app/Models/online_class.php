@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class online_class extends Model
 {
     //protected $guarded=[];
-    public $fillable= ['integration','Grade_id','Classroom_id','section_id','created_by','meeting_id','topic','start_at','duration','password','start_url','join_url'];
+    public $fillable= ['integration','Grade_id','Classroom_id','section_id','created_by','subject_id','meeting_id','topic','start_at','duration','password','start_url','join_url'];
 
     public function grade()
     {
@@ -26,9 +26,9 @@ class online_class extends Model
         return $this->belongsTo('App\Models\Section', 'section_id');
     }
 
-    public function user()
+    public function subject()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(Subject::class, 'subject_id');
     }
 
 }

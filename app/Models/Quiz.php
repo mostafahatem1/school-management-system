@@ -14,37 +14,32 @@ class Quiz extends Model
     {
         return $this->belongsTo('App\Models\Teacher', 'teacher_id');
     }
-
-
-
     public function subject()
     {
         return $this->belongsTo('App\Models\Subject', 'subject_id');
     }
+    public function degree()
+    {
+        return $this->hasMany('App\Models\Degree','quiz_id');
+    }
+    public function questions()
+    {
+        return $this->hasMany('App\Models\Question','quiz_id');
+    }
 
-
+    //==========================================================================================//
     public function grade()
     {
         return $this->belongsTo('App\Models\Grade', 'grade_id');
     }
-
 
     public function classroom()
     {
         return $this->belongsTo('App\Models\Classroom', 'classroom_id');
     }
 
-
     public function section()
     {
         return $this->belongsTo('App\Models\Section', 'section_id');
-    }
-    public function degree()
-    {
-        return $this->hasMany('App\Models\Degree');
-    }
-    public function questions()
-    {
-        return $this->hasMany('App\Models\Question','quiz_id');
     }
 }

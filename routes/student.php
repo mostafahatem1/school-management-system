@@ -21,8 +21,18 @@ Route::group(
     });
 
     Route::group(['namespace' => 'Students\dashboard'], function () {
+        //===================== student_quizzes =========================================================//
         Route::resource('student_quizzes', 'QuizzesController');
+
+        //===================== subject_student =========================================================//
+        Route::resource('subject_student', 'libraryController');
+        Route::get('library_student_attachment/{filename}', 'libraryController@library_student_attachment')->name('subject.student.attachment');
+
+
+        //===================== subjects =========================================================//
         Route::resource('profile-student', 'ProfileController');
+
+
 
     });
 

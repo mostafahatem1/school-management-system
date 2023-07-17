@@ -16,6 +16,7 @@ class CreateLibraryTable extends Migration
         Schema::create('library', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->text('description')->nullable();
             $table->string('file_name');
             $table->timestamps();
         });
